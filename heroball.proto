@@ -1,5 +1,6 @@
 // Heroball Protobuf
 syntax = "proto3";
+import "google/api/annotations.proto";
 
 package pb;
 
@@ -153,8 +154,12 @@ message PlayerInfo {
 }
 
 service HeroBallService {
-  rpc GetPlayerInfo(GetPlayerInfoRequest) returns (PlayerInfo);
-
+  rpc GetPlayerInfo(GetPlayerInfoRequest) returns (PlayerInfo)  {
+      option (google.api.http) = {
+        post: "/v1/player/info"
+        body: "*"
+    };
+  }
 
   rpc GetCompetitions(Empty) returns (GetCompetitionsResponse);
   rpc GetTeamsForCompetition(GetTeamsForCompetitionRequest) returns (GetTeamsForCompetitionResponse);
