@@ -14,6 +14,11 @@ import 'heroball.pb.dart';
 export 'heroball.pb.dart';
 
 class HeroBallServiceClient extends $grpc.Client {
+  static final _$getPlayerInfo =
+      $grpc.ClientMethod<GetPlayerInfoRequest, PlayerInfo>(
+          '/pb.HeroBallService/GetPlayerInfo',
+          (GetPlayerInfoRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => PlayerInfo.fromBuffer(value));
   static final _$getCompetitions =
       $grpc.ClientMethod<Empty, GetCompetitionsResponse>(
           '/pb.HeroBallService/GetCompetitions',
@@ -61,12 +66,6 @@ class HeroBallServiceClient extends $grpc.Client {
           '/pb.HeroBallService/GetPlayerGameStats',
           (GameStatsSelector value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => PlayerGameStats.fromBuffer(value));
-  static final _$getPlayerAverageStats =
-      $grpc.ClientMethod<AverageStatsSelector, PlayerAverageStats>(
-          '/pb.HeroBallService/GetPlayerAverageStats',
-          (AverageStatsSelector value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) =>
-              PlayerAverageStats.fromBuffer(value));
   static final _$addPlayerGameStats =
       $grpc.ClientMethod<PlayerGameStats, Empty>(
           '/pb.HeroBallService/AddPlayerGameStats',
@@ -76,6 +75,14 @@ class HeroBallServiceClient extends $grpc.Client {
   HeroBallServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions options})
       : super(channel, options: options);
+
+  $grpc.ResponseFuture<PlayerInfo> getPlayerInfo(GetPlayerInfoRequest request,
+      {$grpc.CallOptions options}) {
+    final call = $createCall(
+        _$getPlayerInfo, $async.Stream.fromIterable([request]),
+        options: options);
+    return $grpc.ResponseFuture(call);
+  }
 
   $grpc.ResponseFuture<GetCompetitionsResponse> getCompetitions(Empty request,
       {$grpc.CallOptions options}) {
@@ -151,15 +158,6 @@ class HeroBallServiceClient extends $grpc.Client {
     return $grpc.ResponseFuture(call);
   }
 
-  $grpc.ResponseFuture<PlayerAverageStats> getPlayerAverageStats(
-      AverageStatsSelector request,
-      {$grpc.CallOptions options}) {
-    final call = $createCall(
-        _$getPlayerAverageStats, $async.Stream.fromIterable([request]),
-        options: options);
-    return $grpc.ResponseFuture(call);
-  }
-
   $grpc.ResponseFuture<Empty> addPlayerGameStats(PlayerGameStats request,
       {$grpc.CallOptions options}) {
     final call = $createCall(
@@ -173,6 +171,13 @@ abstract class HeroBallServiceBase extends $grpc.Service {
   $core.String get $name => 'pb.HeroBallService';
 
   HeroBallServiceBase() {
+    $addMethod($grpc.ServiceMethod<GetPlayerInfoRequest, PlayerInfo>(
+        'GetPlayerInfo',
+        getPlayerInfo_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => GetPlayerInfoRequest.fromBuffer(value),
+        (PlayerInfo value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<Empty, GetCompetitionsResponse>(
         'GetCompetitions',
         getCompetitions_Pre,
@@ -244,13 +249,6 @@ abstract class HeroBallServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => GameStatsSelector.fromBuffer(value),
         (PlayerGameStats value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<AverageStatsSelector, PlayerAverageStats>(
-        'GetPlayerAverageStats',
-        getPlayerAverageStats_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => AverageStatsSelector.fromBuffer(value),
-        (PlayerAverageStats value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<PlayerGameStats, Empty>(
         'AddPlayerGameStats',
         addPlayerGameStats_Pre,
@@ -258,6 +256,11 @@ abstract class HeroBallServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => PlayerGameStats.fromBuffer(value),
         (Empty value) => value.writeToBuffer()));
+  }
+
+  $async.Future<PlayerInfo> getPlayerInfo_Pre(
+      $grpc.ServiceCall call, $async.Future request) async {
+    return getPlayerInfo(call, await request);
   }
 
   $async.Future<GetCompetitionsResponse> getCompetitions_Pre(
@@ -305,16 +308,13 @@ abstract class HeroBallServiceBase extends $grpc.Service {
     return getPlayerGameStats(call, await request);
   }
 
-  $async.Future<PlayerAverageStats> getPlayerAverageStats_Pre(
-      $grpc.ServiceCall call, $async.Future request) async {
-    return getPlayerAverageStats(call, await request);
-  }
-
   $async.Future<Empty> addPlayerGameStats_Pre(
       $grpc.ServiceCall call, $async.Future request) async {
     return addPlayerGameStats(call, await request);
   }
 
+  $async.Future<PlayerInfo> getPlayerInfo(
+      $grpc.ServiceCall call, GetPlayerInfoRequest request);
   $async.Future<GetCompetitionsResponse> getCompetitions(
       $grpc.ServiceCall call, Empty request);
   $async.Future<GetTeamsForCompetitionResponse> getTeamsForCompetition(
@@ -331,8 +331,6 @@ abstract class HeroBallServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, GetGamesForPlayerRequest request);
   $async.Future<PlayerGameStats> getPlayerGameStats(
       $grpc.ServiceCall call, GameStatsSelector request);
-  $async.Future<PlayerAverageStats> getPlayerAverageStats(
-      $grpc.ServiceCall call, AverageStatsSelector request);
   $async.Future<Empty> addPlayerGameStats(
       $grpc.ServiceCall call, PlayerGameStats request);
 }

@@ -6,7 +6,6 @@
 
 import 'dart:core' as $core show bool, Deprecated, double, int, List, Map, override, String;
 
-import 'package:fixnum/fixnum.dart';
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Player extends $pb.GeneratedMessage {
@@ -43,42 +42,6 @@ class Player extends $pb.GeneratedMessage {
   set position($core.String v) { $_setString(2, v); }
   $core.bool hasPosition() => $_has(2);
   void clearPosition() => clearField(3);
-}
-
-class PlayerStats extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('PlayerStats', package: const $pb.PackageName('pb'))
-    ..aOS(2, 'email')
-    ..aOS(3, 'password')
-    ..aInt64(4, 'createdTimestamp')
-    ..hasRequiredFields = false
-  ;
-
-  PlayerStats() : super();
-  PlayerStats.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  PlayerStats.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  PlayerStats clone() => PlayerStats()..mergeFromMessage(this);
-  PlayerStats copyWith(void Function(PlayerStats) updates) => super.copyWith((message) => updates(message as PlayerStats));
-  $pb.BuilderInfo get info_ => _i;
-  static PlayerStats create() => PlayerStats();
-  PlayerStats createEmptyInstance() => create();
-  static $pb.PbList<PlayerStats> createRepeated() => $pb.PbList<PlayerStats>();
-  static PlayerStats getDefault() => _defaultInstance ??= create()..freeze();
-  static PlayerStats _defaultInstance;
-
-  $core.String get email => $_getS(0, '');
-  set email($core.String v) { $_setString(0, v); }
-  $core.bool hasEmail() => $_has(0);
-  void clearEmail() => clearField(2);
-
-  $core.String get password => $_getS(1, '');
-  set password($core.String v) { $_setString(1, v); }
-  $core.bool hasPassword() => $_has(1);
-  void clearPassword() => clearField(3);
-
-  Int64 get createdTimestamp => $_getI64(2);
-  set createdTimestamp(Int64 v) { $_setInt64(2, v); }
-  $core.bool hasCreatedTimestamp() => $_has(2);
-  void clearCreatedTimestamp() => clearField(4);
 }
 
 class Competition extends $pb.GeneratedMessage {
@@ -243,16 +206,70 @@ class Time extends $pb.GeneratedMessage {
   void clearMinute() => clearField(2);
 }
 
+class GameInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('GameInfo', package: const $pb.PackageName('pb'))
+    ..a<$core.int>(1, 'gameId', $pb.PbFieldType.O3)
+    ..a<Team>(2, 'homeTeam', $pb.PbFieldType.OM, Team.getDefault, Team.create)
+    ..a<Team>(3, 'awayTeam', $pb.PbFieldType.OM, Team.getDefault, Team.create)
+    ..a<Location>(4, 'location', $pb.PbFieldType.OM, Location.getDefault, Location.create)
+    ..a<Competition>(5, 'competition', $pb.PbFieldType.OM, Competition.getDefault, Competition.create)
+    ..a<Date>(6, 'date', $pb.PbFieldType.OM, Date.getDefault, Date.create)
+    ..a<Time>(7, 'time', $pb.PbFieldType.OM, Time.getDefault, Time.create)
+    ..hasRequiredFields = false
+  ;
+
+  GameInfo() : super();
+  GameInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
+  GameInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
+  GameInfo clone() => GameInfo()..mergeFromMessage(this);
+  GameInfo copyWith(void Function(GameInfo) updates) => super.copyWith((message) => updates(message as GameInfo));
+  $pb.BuilderInfo get info_ => _i;
+  static GameInfo create() => GameInfo();
+  GameInfo createEmptyInstance() => create();
+  static $pb.PbList<GameInfo> createRepeated() => $pb.PbList<GameInfo>();
+  static GameInfo getDefault() => _defaultInstance ??= create()..freeze();
+  static GameInfo _defaultInstance;
+
+  $core.int get gameId => $_get(0, 0);
+  set gameId($core.int v) { $_setSignedInt32(0, v); }
+  $core.bool hasGameId() => $_has(0);
+  void clearGameId() => clearField(1);
+
+  Team get homeTeam => $_getN(1);
+  set homeTeam(Team v) { setField(2, v); }
+  $core.bool hasHomeTeam() => $_has(1);
+  void clearHomeTeam() => clearField(2);
+
+  Team get awayTeam => $_getN(2);
+  set awayTeam(Team v) { setField(3, v); }
+  $core.bool hasAwayTeam() => $_has(2);
+  void clearAwayTeam() => clearField(3);
+
+  Location get location => $_getN(3);
+  set location(Location v) { setField(4, v); }
+  $core.bool hasLocation() => $_has(3);
+  void clearLocation() => clearField(4);
+
+  Competition get competition => $_getN(4);
+  set competition(Competition v) { setField(5, v); }
+  $core.bool hasCompetition() => $_has(4);
+  void clearCompetition() => clearField(5);
+
+  Date get date => $_getN(5);
+  set date(Date v) { setField(6, v); }
+  $core.bool hasDate() => $_has(5);
+  void clearDate() => clearField(6);
+
+  Time get time => $_getN(6);
+  set time(Time v) { setField(7, v); }
+  $core.bool hasTime() => $_has(6);
+  void clearTime() => clearField(7);
+}
+
 class Game extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('Game', package: const $pb.PackageName('pb'))
-    ..a<$core.int>(1, 'gameId', $pb.PbFieldType.O3)
-    ..m<$core.int, PlayerGameStats>(2, 'playerStats', 'Game.PlayerStatsEntry',$pb.PbFieldType.O3, $pb.PbFieldType.OM, PlayerGameStats.create, null, null , const $pb.PackageName('pb'))
-    ..a<Team>(3, 'homeTeam', $pb.PbFieldType.OM, Team.getDefault, Team.create)
-    ..a<Team>(4, 'awayTeam', $pb.PbFieldType.OM, Team.getDefault, Team.create)
-    ..a<Location>(5, 'location', $pb.PbFieldType.OM, Location.getDefault, Location.create)
-    ..a<Competition>(6, 'competition', $pb.PbFieldType.OM, Competition.getDefault, Competition.create)
-    ..a<Date>(7, 'date', $pb.PbFieldType.OM, Date.getDefault, Date.create)
-    ..a<Time>(8, 'time', $pb.PbFieldType.OM, Time.getDefault, Time.create)
+    ..a<GameInfo>(2, 'info', $pb.PbFieldType.OM, GameInfo.getDefault, GameInfo.create)
+    ..m<$core.int, PlayerGameStats>(3, 'gameStats', 'Game.GameStatsEntry',$pb.PbFieldType.O3, $pb.PbFieldType.OM, PlayerGameStats.create, null, null , const $pb.PackageName('pb'))
     ..hasRequiredFields = false
   ;
 
@@ -268,42 +285,12 @@ class Game extends $pb.GeneratedMessage {
   static Game getDefault() => _defaultInstance ??= create()..freeze();
   static Game _defaultInstance;
 
-  $core.int get gameId => $_get(0, 0);
-  set gameId($core.int v) { $_setSignedInt32(0, v); }
-  $core.bool hasGameId() => $_has(0);
-  void clearGameId() => clearField(1);
+  GameInfo get info => $_getN(0);
+  set info(GameInfo v) { setField(2, v); }
+  $core.bool hasInfo() => $_has(0);
+  void clearInfo() => clearField(2);
 
-  $core.Map<$core.int, PlayerGameStats> get playerStats => $_getMap(1);
-
-  Team get homeTeam => $_getN(2);
-  set homeTeam(Team v) { setField(3, v); }
-  $core.bool hasHomeTeam() => $_has(2);
-  void clearHomeTeam() => clearField(3);
-
-  Team get awayTeam => $_getN(3);
-  set awayTeam(Team v) { setField(4, v); }
-  $core.bool hasAwayTeam() => $_has(3);
-  void clearAwayTeam() => clearField(4);
-
-  Location get location => $_getN(4);
-  set location(Location v) { setField(5, v); }
-  $core.bool hasLocation() => $_has(4);
-  void clearLocation() => clearField(5);
-
-  Competition get competition => $_getN(5);
-  set competition(Competition v) { setField(6, v); }
-  $core.bool hasCompetition() => $_has(5);
-  void clearCompetition() => clearField(6);
-
-  Date get date => $_getN(6);
-  set date(Date v) { setField(7, v); }
-  $core.bool hasDate() => $_has(6);
-  void clearDate() => clearField(7);
-
-  Time get time => $_getN(7);
-  set time(Time v) { setField(8, v); }
-  $core.bool hasTime() => $_has(7);
-  void clearTime() => clearField(8);
+  $core.Map<$core.int, PlayerGameStats> get gameStats => $_getMap(1);
 }
 
 class Stats extends $pb.GeneratedMessage {
@@ -428,8 +415,7 @@ class Stats extends $pb.GeneratedMessage {
 
 class PlayerGameStats extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('PlayerGameStats', package: const $pb.PackageName('pb'))
-    ..a<$core.int>(1, 'playerId', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, 'gameId', $pb.PbFieldType.O3)
+    ..a<GameInfo>(2, 'gameInfo', $pb.PbFieldType.OM, GameInfo.getDefault, GameInfo.create)
     ..a<$core.int>(3, 'teamId', $pb.PbFieldType.O3)
     ..a<Stats>(4, 'stats', $pb.PbFieldType.OM, Stats.getDefault, Stats.create)
     ..hasRequiredFields = false
@@ -447,112 +433,20 @@ class PlayerGameStats extends $pb.GeneratedMessage {
   static PlayerGameStats getDefault() => _defaultInstance ??= create()..freeze();
   static PlayerGameStats _defaultInstance;
 
-  $core.int get playerId => $_get(0, 0);
-  set playerId($core.int v) { $_setSignedInt32(0, v); }
-  $core.bool hasPlayerId() => $_has(0);
-  void clearPlayerId() => clearField(1);
+  GameInfo get gameInfo => $_getN(0);
+  set gameInfo(GameInfo v) { setField(2, v); }
+  $core.bool hasGameInfo() => $_has(0);
+  void clearGameInfo() => clearField(2);
 
-  $core.int get gameId => $_get(1, 0);
-  set gameId($core.int v) { $_setSignedInt32(1, v); }
-  $core.bool hasGameId() => $_has(1);
-  void clearGameId() => clearField(2);
-
-  $core.int get teamId => $_get(2, 0);
-  set teamId($core.int v) { $_setSignedInt32(2, v); }
-  $core.bool hasTeamId() => $_has(2);
+  $core.int get teamId => $_get(1, 0);
+  set teamId($core.int v) { $_setSignedInt32(1, v); }
+  $core.bool hasTeamId() => $_has(1);
   void clearTeamId() => clearField(3);
-
-  Stats get stats => $_getN(3);
-  set stats(Stats v) { setField(4, v); }
-  $core.bool hasStats() => $_has(3);
-  void clearStats() => clearField(4);
-}
-
-class PlayerAverageStats extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('PlayerAverageStats', package: const $pb.PackageName('pb'))
-    ..a<$core.int>(1, 'playerId', $pb.PbFieldType.O3)
-    ..p<$core.int>(2, 'gameIds', $pb.PbFieldType.P3)
-    ..a<Stats>(4, 'stats', $pb.PbFieldType.OM, Stats.getDefault, Stats.create)
-    ..hasRequiredFields = false
-  ;
-
-  PlayerAverageStats() : super();
-  PlayerAverageStats.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  PlayerAverageStats.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  PlayerAverageStats clone() => PlayerAverageStats()..mergeFromMessage(this);
-  PlayerAverageStats copyWith(void Function(PlayerAverageStats) updates) => super.copyWith((message) => updates(message as PlayerAverageStats));
-  $pb.BuilderInfo get info_ => _i;
-  static PlayerAverageStats create() => PlayerAverageStats();
-  PlayerAverageStats createEmptyInstance() => create();
-  static $pb.PbList<PlayerAverageStats> createRepeated() => $pb.PbList<PlayerAverageStats>();
-  static PlayerAverageStats getDefault() => _defaultInstance ??= create()..freeze();
-  static PlayerAverageStats _defaultInstance;
-
-  $core.int get playerId => $_get(0, 0);
-  set playerId($core.int v) { $_setSignedInt32(0, v); }
-  $core.bool hasPlayerId() => $_has(0);
-  void clearPlayerId() => clearField(1);
-
-  $core.List<$core.int> get gameIds => $_getList(1);
 
   Stats get stats => $_getN(2);
   set stats(Stats v) { setField(4, v); }
   $core.bool hasStats() => $_has(2);
   void clearStats() => clearField(4);
-}
-
-class AverageStatsSelector extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('AverageStatsSelector', package: const $pb.PackageName('pb'))
-    ..a<$core.int>(1, 'playerId', $pb.PbFieldType.O3)
-    ..a<Date>(2, 'startDate', $pb.PbFieldType.OM, Date.getDefault, Date.create)
-    ..a<Date>(3, 'endDate', $pb.PbFieldType.OM, Date.getDefault, Date.create)
-    ..a<$core.int>(4, 'teamIdFor', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, 'teamIdAgainst', $pb.PbFieldType.O3)
-    ..a<$core.int>(6, 'competitionId', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  AverageStatsSelector() : super();
-  AverageStatsSelector.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  AverageStatsSelector.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
-  AverageStatsSelector clone() => AverageStatsSelector()..mergeFromMessage(this);
-  AverageStatsSelector copyWith(void Function(AverageStatsSelector) updates) => super.copyWith((message) => updates(message as AverageStatsSelector));
-  $pb.BuilderInfo get info_ => _i;
-  static AverageStatsSelector create() => AverageStatsSelector();
-  AverageStatsSelector createEmptyInstance() => create();
-  static $pb.PbList<AverageStatsSelector> createRepeated() => $pb.PbList<AverageStatsSelector>();
-  static AverageStatsSelector getDefault() => _defaultInstance ??= create()..freeze();
-  static AverageStatsSelector _defaultInstance;
-
-  $core.int get playerId => $_get(0, 0);
-  set playerId($core.int v) { $_setSignedInt32(0, v); }
-  $core.bool hasPlayerId() => $_has(0);
-  void clearPlayerId() => clearField(1);
-
-  Date get startDate => $_getN(1);
-  set startDate(Date v) { setField(2, v); }
-  $core.bool hasStartDate() => $_has(1);
-  void clearStartDate() => clearField(2);
-
-  Date get endDate => $_getN(2);
-  set endDate(Date v) { setField(3, v); }
-  $core.bool hasEndDate() => $_has(2);
-  void clearEndDate() => clearField(3);
-
-  $core.int get teamIdFor => $_get(3, 0);
-  set teamIdFor($core.int v) { $_setSignedInt32(3, v); }
-  $core.bool hasTeamIdFor() => $_has(3);
-  void clearTeamIdFor() => clearField(4);
-
-  $core.int get teamIdAgainst => $_get(4, 0);
-  set teamIdAgainst($core.int v) { $_setSignedInt32(4, v); }
-  $core.bool hasTeamIdAgainst() => $_has(4);
-  void clearTeamIdAgainst() => clearField(5);
-
-  $core.int get competitionId => $_get(5, 0);
-  set competitionId($core.int v) { $_setSignedInt32(5, v); }
-  $core.bool hasCompetitionId() => $_has(5);
-  void clearCompetitionId() => clearField(6);
 }
 
 class GameStatsSelector extends $pb.GeneratedMessage {
@@ -886,5 +780,107 @@ class GetGamesOnDateResponse extends $pb.GeneratedMessage {
   static GetGamesOnDateResponse _defaultInstance;
 
   $core.List<Game> get games => $_getList(0);
+}
+
+class GetPlayerInfoRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('GetPlayerInfoRequest', package: const $pb.PackageName('pb'))
+    ..a<$core.int>(1, 'playerId', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  GetPlayerInfoRequest() : super();
+  GetPlayerInfoRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
+  GetPlayerInfoRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
+  GetPlayerInfoRequest clone() => GetPlayerInfoRequest()..mergeFromMessage(this);
+  GetPlayerInfoRequest copyWith(void Function(GetPlayerInfoRequest) updates) => super.copyWith((message) => updates(message as GetPlayerInfoRequest));
+  $pb.BuilderInfo get info_ => _i;
+  static GetPlayerInfoRequest create() => GetPlayerInfoRequest();
+  GetPlayerInfoRequest createEmptyInstance() => create();
+  static $pb.PbList<GetPlayerInfoRequest> createRepeated() => $pb.PbList<GetPlayerInfoRequest>();
+  static GetPlayerInfoRequest getDefault() => _defaultInstance ??= create()..freeze();
+  static GetPlayerInfoRequest _defaultInstance;
+
+  $core.int get playerId => $_get(0, 0);
+  set playerId($core.int v) { $_setSignedInt32(0, v); }
+  $core.bool hasPlayerId() => $_has(0);
+  void clearPlayerId() => clearField(1);
+}
+
+class PlayerProfile extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('PlayerProfile', package: const $pb.PackageName('pb'))
+    ..aOS(1, 'name')
+    ..a<$core.int>(2, 'yearStarted', $pb.PbFieldType.O3)
+    ..aOS(3, 'position')
+    ..aOS(4, 'description')
+    ..hasRequiredFields = false
+  ;
+
+  PlayerProfile() : super();
+  PlayerProfile.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
+  PlayerProfile.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
+  PlayerProfile clone() => PlayerProfile()..mergeFromMessage(this);
+  PlayerProfile copyWith(void Function(PlayerProfile) updates) => super.copyWith((message) => updates(message as PlayerProfile));
+  $pb.BuilderInfo get info_ => _i;
+  static PlayerProfile create() => PlayerProfile();
+  PlayerProfile createEmptyInstance() => create();
+  static $pb.PbList<PlayerProfile> createRepeated() => $pb.PbList<PlayerProfile>();
+  static PlayerProfile getDefault() => _defaultInstance ??= create()..freeze();
+  static PlayerProfile _defaultInstance;
+
+  $core.String get name => $_getS(0, '');
+  set name($core.String v) { $_setString(0, v); }
+  $core.bool hasName() => $_has(0);
+  void clearName() => clearField(1);
+
+  $core.int get yearStarted => $_get(1, 0);
+  set yearStarted($core.int v) { $_setSignedInt32(1, v); }
+  $core.bool hasYearStarted() => $_has(1);
+  void clearYearStarted() => clearField(2);
+
+  $core.String get position => $_getS(2, '');
+  set position($core.String v) { $_setString(2, v); }
+  $core.bool hasPosition() => $_has(2);
+  void clearPosition() => clearField(3);
+
+  $core.String get description => $_getS(3, '');
+  set description($core.String v) { $_setString(3, v); }
+  $core.bool hasDescription() => $_has(3);
+  void clearDescription() => clearField(4);
+}
+
+class PlayerInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('PlayerInfo', package: const $pb.PackageName('pb'))
+    ..a<$core.int>(1, 'playerId', $pb.PbFieldType.O3)
+    ..a<PlayerProfile>(2, 'profile', $pb.PbFieldType.OM, PlayerProfile.getDefault, PlayerProfile.create)
+    ..pc<GameInfo>(3, 'recentGames', $pb.PbFieldType.PM,GameInfo.create)
+    ..pc<Stats>(4, 'recentStats', $pb.PbFieldType.PM,Stats.create)
+    ..hasRequiredFields = false
+  ;
+
+  PlayerInfo() : super();
+  PlayerInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
+  PlayerInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
+  PlayerInfo clone() => PlayerInfo()..mergeFromMessage(this);
+  PlayerInfo copyWith(void Function(PlayerInfo) updates) => super.copyWith((message) => updates(message as PlayerInfo));
+  $pb.BuilderInfo get info_ => _i;
+  static PlayerInfo create() => PlayerInfo();
+  PlayerInfo createEmptyInstance() => create();
+  static $pb.PbList<PlayerInfo> createRepeated() => $pb.PbList<PlayerInfo>();
+  static PlayerInfo getDefault() => _defaultInstance ??= create()..freeze();
+  static PlayerInfo _defaultInstance;
+
+  $core.int get playerId => $_get(0, 0);
+  set playerId($core.int v) { $_setSignedInt32(0, v); }
+  $core.bool hasPlayerId() => $_has(0);
+  void clearPlayerId() => clearField(1);
+
+  PlayerProfile get profile => $_getN(1);
+  set profile(PlayerProfile v) { setField(2, v); }
+  $core.bool hasProfile() => $_has(1);
+  void clearProfile() => clearField(2);
+
+  $core.List<GameInfo> get recentGames => $_getList(2);
+
+  $core.List<Stats> get recentStats => $_getList(3);
 }
 

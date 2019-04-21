@@ -9,12 +9,6 @@ message Player {
   string Position = 3;
 }
 
-message PlayerStats {
-  string Email = 2;
-  string Password = 3;
-  int64 CreatedTimestamp = 4;
-}
-
 message Competition {
   int32 CompetitionId = 1;
   string Name = 2;
@@ -42,15 +36,19 @@ message Time {
   int32 minute = 2;
 }
 
-message Game {
+message GameInfo {
   int32 GameId = 1;
-  map<int32, PlayerGameStats> PlayerStats = 2;
-  Team HomeTeam = 3;
-  Team AwayTeam = 4;
-  Location Location = 5;
-  Competition Competition = 6;
-  Date Date = 7;
-  Time Time = 8;
+  Team HomeTeam = 2;
+  Team AwayTeam = 3;
+  Location Location = 4;
+  Competition Competition = 5;
+  Date Date = 6;
+  Time Time = 7;
+}
+
+message Game {
+  GameInfo Info = 2;
+  map<int32, PlayerGameStats> GameStats = 3;
 }
 
 message Stats {
@@ -74,25 +72,9 @@ message Stats {
 }
 
 message PlayerGameStats {
-  int32 PlayerId = 1;
-  int32 GameId = 2;
+  GameInfo GameInfo = 2;
   int32 TeamId = 3;
   Stats Stats = 4;
-}
-
-message PlayerAverageStats {
-  int32 PlayerId = 1;
-  repeated int32 GameIds = 2;
-  Stats Stats = 4;
-}
-
-message AverageStatsSelector {
-  int32 PlayerId = 1;
-  Date StartDate = 2;
-  Date EndDate = 3;
-  int32 TeamIdFor = 4;
-  int32 TeamIdAgainst = 5;
-  int32 CompetitionId = 6;
 }
 
 message GameStatsSelector {
@@ -144,32 +126,6 @@ message GetGamesForPlayerRequest {
   int32 TeamId = 2;
 }
 
-// message TopAverageStatsSelector {
-//   int32 Count = 1;
-//   repeated int32 PlayerIds = 2;
-//   repeated int32 GameIds = 3;
-//   repeated int32 TeamIds = 4;
-//   repeated int32 ComptitionIds = 5;
-// }
-
-// message TopAverageStatsResponse {
-//   repeated PlayerAverageStats TwoPointFGA = 1;
-//   repeated PlayerAverageStats TwoPointFGM = 2;
-//   repeated PlayerAverageStats ThreePointFMA = 3;
-//   repeated PlayerAverageStats ThreePointFGM = 4;
-//   repeated PlayerAverageStats FreeThrowsAttempted = 5;
-//   repeated PlayerAverageStats FreeThrowsMade = 6;
-//   repeated PlayerAverageStats OffensiveRebounds = 7;
-//   repeated PlayerAverageStats DefensiveRebounds = 8;
-//   repeated PlayerAverageStats Assists = 9;
-//   repeated PlayerAverageStats Blocks = 10;
-//   repeated PlayerAverageStats Steals = 11;
-//   repeated PlayerAverageStats Turnovers = 12;
-//   repeated PlayerAverageStats RegularFoulsForced = 13;
-//   repeated PlayerAverageStats RegularFoulsCommitted = 14;
-//   repeated PlayerAverageStats TechnicalFoulsCommitted = 15;
-// }
-
 message GetGamesOnDateRequest {
   Date Date = 1;
 }
@@ -178,7 +134,28 @@ message GetGamesOnDateResponse {
   repeated Game Games = 1;
 }
 
+message GetPlayerInfoRequest {
+  int32 PlayerId = 1;
+}
+
+message PlayerProfile {
+  string Name = 1;
+  int32 YearStarted = 2;
+  string Position = 3;
+  string Description = 4;
+}
+
+message PlayerInfo {
+  int32 PlayerId = 1;
+  PlayerProfile Profile = 2;
+  repeated GameInfo RecentGames = 3;
+  repeated Stats RecentStats = 4;
+}
+
 service HeroBallService {
+  rpc GetPlayerInfo(GetPlayerInfoRequest) returns (PlayerInfo);
+
+
   rpc GetCompetitions(Empty) returns (GetCompetitionsResponse);
   rpc GetTeamsForCompetition(GetTeamsForCompetitionRequest) returns (GetTeamsForCompetitionResponse);
   rpc GetTeam(GetTeamRequest) returns (Team);
@@ -189,6 +166,6 @@ service HeroBallService {
   rpc GetGame(GetPlayerRequest) returns (Game);
   rpc GetGamesForPlayer(GetGamesForPlayerRequest) returns (GetGamesForPlayerResponse);
   rpc GetPlayerGameStats(GameStatsSelector) returns (PlayerGameStats);
-  rpc GetPlayerAverageStats(AverageStatsSelector) returns (PlayerAverageStats);
+  // rpc GetPlayerAverageStats(AverageStatsSelector) returns (PlayerAverageStats);
   rpc AddPlayerGameStats(PlayerGameStats) returns (Empty);
 }

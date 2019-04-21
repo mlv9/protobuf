@@ -13,15 +13,6 @@ const Player$json = const {
   ],
 };
 
-const PlayerStats$json = const {
-  '1': 'PlayerStats',
-  '2': const [
-    const {'1': 'Email', '3': 2, '4': 1, '5': 9, '10': 'Email'},
-    const {'1': 'Password', '3': 3, '4': 1, '5': 9, '10': 'Password'},
-    const {'1': 'CreatedTimestamp', '3': 4, '4': 1, '5': 3, '10': 'CreatedTimestamp'},
-  ],
-};
-
 const Competition$json = const {
   '1': 'Competition',
   '2': const [
@@ -64,23 +55,30 @@ const Time$json = const {
   ],
 };
 
+const GameInfo$json = const {
+  '1': 'GameInfo',
+  '2': const [
+    const {'1': 'GameId', '3': 1, '4': 1, '5': 5, '10': 'GameId'},
+    const {'1': 'HomeTeam', '3': 2, '4': 1, '5': 11, '6': '.pb.Team', '10': 'HomeTeam'},
+    const {'1': 'AwayTeam', '3': 3, '4': 1, '5': 11, '6': '.pb.Team', '10': 'AwayTeam'},
+    const {'1': 'Location', '3': 4, '4': 1, '5': 11, '6': '.pb.Location', '10': 'Location'},
+    const {'1': 'Competition', '3': 5, '4': 1, '5': 11, '6': '.pb.Competition', '10': 'Competition'},
+    const {'1': 'Date', '3': 6, '4': 1, '5': 11, '6': '.pb.Date', '10': 'Date'},
+    const {'1': 'Time', '3': 7, '4': 1, '5': 11, '6': '.pb.Time', '10': 'Time'},
+  ],
+};
+
 const Game$json = const {
   '1': 'Game',
   '2': const [
-    const {'1': 'GameId', '3': 1, '4': 1, '5': 5, '10': 'GameId'},
-    const {'1': 'PlayerStats', '3': 2, '4': 3, '5': 11, '6': '.pb.Game.PlayerStatsEntry', '10': 'PlayerStats'},
-    const {'1': 'HomeTeam', '3': 3, '4': 1, '5': 11, '6': '.pb.Team', '10': 'HomeTeam'},
-    const {'1': 'AwayTeam', '3': 4, '4': 1, '5': 11, '6': '.pb.Team', '10': 'AwayTeam'},
-    const {'1': 'Location', '3': 5, '4': 1, '5': 11, '6': '.pb.Location', '10': 'Location'},
-    const {'1': 'Competition', '3': 6, '4': 1, '5': 11, '6': '.pb.Competition', '10': 'Competition'},
-    const {'1': 'Date', '3': 7, '4': 1, '5': 11, '6': '.pb.Date', '10': 'Date'},
-    const {'1': 'Time', '3': 8, '4': 1, '5': 11, '6': '.pb.Time', '10': 'Time'},
+    const {'1': 'Info', '3': 2, '4': 1, '5': 11, '6': '.pb.GameInfo', '10': 'Info'},
+    const {'1': 'GameStats', '3': 3, '4': 3, '5': 11, '6': '.pb.Game.GameStatsEntry', '10': 'GameStats'},
   ],
-  '3': const [Game_PlayerStatsEntry$json],
+  '3': const [Game_GameStatsEntry$json],
 };
 
-const Game_PlayerStatsEntry$json = const {
-  '1': 'PlayerStatsEntry',
+const Game_GameStatsEntry$json = const {
+  '1': 'GameStatsEntry',
   '2': const [
     const {'1': 'key', '3': 1, '4': 1, '5': 5, '10': 'key'},
     const {'1': 'value', '3': 2, '4': 1, '5': 11, '6': '.pb.PlayerGameStats', '10': 'value'},
@@ -114,31 +112,9 @@ const Stats$json = const {
 const PlayerGameStats$json = const {
   '1': 'PlayerGameStats',
   '2': const [
-    const {'1': 'PlayerId', '3': 1, '4': 1, '5': 5, '10': 'PlayerId'},
-    const {'1': 'GameId', '3': 2, '4': 1, '5': 5, '10': 'GameId'},
+    const {'1': 'GameInfo', '3': 2, '4': 1, '5': 11, '6': '.pb.GameInfo', '10': 'GameInfo'},
     const {'1': 'TeamId', '3': 3, '4': 1, '5': 5, '10': 'TeamId'},
     const {'1': 'Stats', '3': 4, '4': 1, '5': 11, '6': '.pb.Stats', '10': 'Stats'},
-  ],
-};
-
-const PlayerAverageStats$json = const {
-  '1': 'PlayerAverageStats',
-  '2': const [
-    const {'1': 'PlayerId', '3': 1, '4': 1, '5': 5, '10': 'PlayerId'},
-    const {'1': 'GameIds', '3': 2, '4': 3, '5': 5, '10': 'GameIds'},
-    const {'1': 'Stats', '3': 4, '4': 1, '5': 11, '6': '.pb.Stats', '10': 'Stats'},
-  ],
-};
-
-const AverageStatsSelector$json = const {
-  '1': 'AverageStatsSelector',
-  '2': const [
-    const {'1': 'PlayerId', '3': 1, '4': 1, '5': 5, '10': 'PlayerId'},
-    const {'1': 'StartDate', '3': 2, '4': 1, '5': 11, '6': '.pb.Date', '10': 'StartDate'},
-    const {'1': 'EndDate', '3': 3, '4': 1, '5': 11, '6': '.pb.Date', '10': 'EndDate'},
-    const {'1': 'TeamIdFor', '3': 4, '4': 1, '5': 5, '10': 'TeamIdFor'},
-    const {'1': 'TeamIdAgainst', '3': 5, '4': 1, '5': 5, '10': 'TeamIdAgainst'},
-    const {'1': 'CompetitionId', '3': 6, '4': 1, '5': 5, '10': 'CompetitionId'},
   ],
 };
 
@@ -237,6 +213,33 @@ const GetGamesOnDateResponse$json = const {
   '1': 'GetGamesOnDateResponse',
   '2': const [
     const {'1': 'Games', '3': 1, '4': 3, '5': 11, '6': '.pb.Game', '10': 'Games'},
+  ],
+};
+
+const GetPlayerInfoRequest$json = const {
+  '1': 'GetPlayerInfoRequest',
+  '2': const [
+    const {'1': 'PlayerId', '3': 1, '4': 1, '5': 5, '10': 'PlayerId'},
+  ],
+};
+
+const PlayerProfile$json = const {
+  '1': 'PlayerProfile',
+  '2': const [
+    const {'1': 'Name', '3': 1, '4': 1, '5': 9, '10': 'Name'},
+    const {'1': 'YearStarted', '3': 2, '4': 1, '5': 5, '10': 'YearStarted'},
+    const {'1': 'Position', '3': 3, '4': 1, '5': 9, '10': 'Position'},
+    const {'1': 'Description', '3': 4, '4': 1, '5': 9, '10': 'Description'},
+  ],
+};
+
+const PlayerInfo$json = const {
+  '1': 'PlayerInfo',
+  '2': const [
+    const {'1': 'PlayerId', '3': 1, '4': 1, '5': 5, '10': 'PlayerId'},
+    const {'1': 'Profile', '3': 2, '4': 1, '5': 11, '6': '.pb.PlayerProfile', '10': 'Profile'},
+    const {'1': 'RecentGames', '3': 3, '4': 3, '5': 11, '6': '.pb.GameInfo', '10': 'RecentGames'},
+    const {'1': 'RecentStats', '3': 4, '4': 3, '5': 11, '6': '.pb.Stats', '10': 'RecentStats'},
   ],
 };
 
