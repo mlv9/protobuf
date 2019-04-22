@@ -78,7 +78,7 @@ message Game {
   Team AwayTeam = 3;
   Location Location = 4;
   Competition Competition = 5;
-  string Datetime = 7;
+  string GameTime = 7;
 }
 
 service HeroBallService {
