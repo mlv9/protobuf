@@ -37,21 +37,6 @@ message Time {
   int32 minute = 2;
 }
 
-message GameInfo {
-  int32 GameId = 1;
-  Team HomeTeam = 2;
-  Team AwayTeam = 3;
-  Location Location = 4;
-  Competition Competition = 5;
-  Date Date = 6;
-  Time Time = 7;
-}
-
-message Game {
-  GameInfo Info = 2;
-  map<int32, PlayerGameStats> GameStats = 3;
-}
-
 message Stats {
   int32 StatsId = 1;
   int32 TwoPointFGA = 2;
@@ -72,68 +57,9 @@ message Stats {
   int32 MinutesPlayed = 17;
 }
 
-message PlayerGameStats {
-  GameInfo GameInfo = 2;
-  int32 TeamId = 3;
-  Stats Stats = 4;
-}
 
-message GameStatsSelector {
-  int32 PlayerId = 1;
-  int32 GameId = 2;
-}
 
 message Empty {}
-
-message GetCompetitionsResponse {
-  repeated Competition Competitions = 1;
-}
-
-message GetTeamsForCompetitionResponse {
-  repeated Team Teams = 1;
-}
-
-message GetGamesForPlayerResponse {
-  repeated Game Games = 1;
-}
-
-message GetGamesForTeamResponse {
-  repeated Game Games = 1;
-}
-
-message GetTeamsForCompetitionRequest {
-  int32 CompetitionId = 1;
-}
-
-message GetTeamRequest {
-  int32 TeamId = 1;
-}
-
-message GetGamesForTeamRequest {
-  int32 TeamId = 1;
-  int32 CompetitionId = 2;
-}
-
-message GetPlayerRequest {
-  int32 PlayerId = 1;
-}
-
-message GetGameRequest {
-  int32 GameId = 1;
-}
-
-message GetGamesForPlayerRequest {
-  int32 GamesId = 1;
-  int32 TeamId = 2;
-}
-
-message GetGamesOnDateRequest {
-  Date Date = 1;
-}
-
-message GetGamesOnDateResponse {
-  repeated Game Games = 1;
-}
 
 message GetPlayerInfoRequest {
   int32 PlayerId = 1;
@@ -149,8 +75,23 @@ message PlayerProfile {
 message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
-  repeated GameInfo RecentGames = 3;
-  repeated Stats RecentStats = 4;
+  repeated PlayerGameStats RecentStats = 3;
+}
+
+message PlayerGameStats {
+  GameInfo GameInfo = 1;
+  int32 TeamId = 2;
+  Stats Stats = 3;
+}
+
+message GameInfo {
+  int32 GameId = 1;
+  Team HomeTeam = 2;
+  Team AwayTeam = 3;
+  Location Location = 4;
+  Competition Competition = 5;
+  Date Date = 6;
+  Time Time = 7;
 }
 
 service HeroBallService {
@@ -160,17 +101,4 @@ service HeroBallService {
         body: "*"
     };
   }
-
-  rpc GetCompetitions(Empty) returns (GetCompetitionsResponse);
-  rpc GetTeamsForCompetition(GetTeamsForCompetitionRequest) returns (GetTeamsForCompetitionResponse);
-  rpc GetTeam(GetTeamRequest) returns (Team);
-  rpc GetGamesForTeam(GetGamesForTeamRequest) returns (GetGamesForTeamResponse);
-  rpc GetPlayer(GetPlayerRequest) returns (Player);
-  // rpc GetTopAverageStats(TopAverageStatsSelector) returns (TopAverageStatsResponse);
-  rpc GetGamesOnDate(GetGamesOnDateRequest) returns (GetGamesOnDateResponse);
-  rpc GetGame(GetPlayerRequest) returns (Game);
-  rpc GetGamesForPlayer(GetGamesForPlayerRequest) returns (GetGamesForPlayerResponse);
-  rpc GetPlayerGameStats(GameStatsSelector) returns (PlayerGameStats);
-  // rpc GetPlayerAverageStats(AverageStatsSelector) returns (PlayerAverageStats);
-  rpc AddPlayerGameStats(PlayerGameStats) returns (Empty);
 }

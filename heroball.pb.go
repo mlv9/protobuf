@@ -37,7 +37,7 @@ func (m *Player) Reset()         { *m = Player{} }
 func (m *Player) String() string { return proto.CompactTextString(m) }
 func (*Player) ProtoMessage()    {}
 func (*Player) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{0}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{0}
 }
 func (m *Player) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Player.Unmarshal(m, b)
@@ -91,7 +91,7 @@ func (m *Competition) Reset()         { *m = Competition{} }
 func (m *Competition) String() string { return proto.CompactTextString(m) }
 func (*Competition) ProtoMessage()    {}
 func (*Competition) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{1}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{1}
 }
 func (m *Competition) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Competition.Unmarshal(m, b)
@@ -144,7 +144,7 @@ func (m *Team) Reset()         { *m = Team{} }
 func (m *Team) String() string { return proto.CompactTextString(m) }
 func (*Team) ProtoMessage()    {}
 func (*Team) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{2}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{2}
 }
 func (m *Team) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Team.Unmarshal(m, b)
@@ -190,7 +190,7 @@ func (m *Location) Reset()         { *m = Location{} }
 func (m *Location) String() string { return proto.CompactTextString(m) }
 func (*Location) ProtoMessage()    {}
 func (*Location) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{3}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{3}
 }
 func (m *Location) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Location.Unmarshal(m, b)
@@ -237,7 +237,7 @@ func (m *Date) Reset()         { *m = Date{} }
 func (m *Date) String() string { return proto.CompactTextString(m) }
 func (*Date) ProtoMessage()    {}
 func (*Date) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{4}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{4}
 }
 func (m *Date) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Date.Unmarshal(m, b)
@@ -290,7 +290,7 @@ func (m *Time) Reset()         { *m = Time{} }
 func (m *Time) String() string { return proto.CompactTextString(m) }
 func (*Time) ProtoMessage()    {}
 func (*Time) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{5}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{5}
 }
 func (m *Time) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Time.Unmarshal(m, b)
@@ -324,138 +324,6 @@ func (m *Time) GetMinute() int32 {
 	return 0
 }
 
-type GameInfo struct {
-	GameId               int32        `protobuf:"varint,1,opt,name=GameId,proto3" json:"GameId"`
-	HomeTeam             *Team        `protobuf:"bytes,2,opt,name=HomeTeam,proto3" json:"HomeTeam"`
-	AwayTeam             *Team        `protobuf:"bytes,3,opt,name=AwayTeam,proto3" json:"AwayTeam"`
-	Location             *Location    `protobuf:"bytes,4,opt,name=Location,proto3" json:"Location"`
-	Competition          *Competition `protobuf:"bytes,5,opt,name=Competition,proto3" json:"Competition"`
-	Date                 *Date        `protobuf:"bytes,6,opt,name=Date,proto3" json:"Date"`
-	Time                 *Time        `protobuf:"bytes,7,opt,name=Time,proto3" json:"Time"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
-}
-
-func (m *GameInfo) Reset()         { *m = GameInfo{} }
-func (m *GameInfo) String() string { return proto.CompactTextString(m) }
-func (*GameInfo) ProtoMessage()    {}
-func (*GameInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{6}
-}
-func (m *GameInfo) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GameInfo.Unmarshal(m, b)
-}
-func (m *GameInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GameInfo.Marshal(b, m, deterministic)
-}
-func (dst *GameInfo) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GameInfo.Merge(dst, src)
-}
-func (m *GameInfo) XXX_Size() int {
-	return xxx_messageInfo_GameInfo.Size(m)
-}
-func (m *GameInfo) XXX_DiscardUnknown() {
-	xxx_messageInfo_GameInfo.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GameInfo proto.InternalMessageInfo
-
-func (m *GameInfo) GetGameId() int32 {
-	if m != nil {
-		return m.GameId
-	}
-	return 0
-}
-
-func (m *GameInfo) GetHomeTeam() *Team {
-	if m != nil {
-		return m.HomeTeam
-	}
-	return nil
-}
-
-func (m *GameInfo) GetAwayTeam() *Team {
-	if m != nil {
-		return m.AwayTeam
-	}
-	return nil
-}
-
-func (m *GameInfo) GetLocation() *Location {
-	if m != nil {
-		return m.Location
-	}
-	return nil
-}
-
-func (m *GameInfo) GetCompetition() *Competition {
-	if m != nil {
-		return m.Competition
-	}
-	return nil
-}
-
-func (m *GameInfo) GetDate() *Date {
-	if m != nil {
-		return m.Date
-	}
-	return nil
-}
-
-func (m *GameInfo) GetTime() *Time {
-	if m != nil {
-		return m.Time
-	}
-	return nil
-}
-
-type Game struct {
-	Info                 *GameInfo                  `protobuf:"bytes,2,opt,name=Info,proto3" json:"Info"`
-	GameStats            map[int32]*PlayerGameStats `protobuf:"bytes,3,rep,name=GameStats,proto3" json:"GameStats" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
-	XXX_unrecognized     []byte                     `json:"-"`
-	XXX_sizecache        int32                      `json:"-"`
-}
-
-func (m *Game) Reset()         { *m = Game{} }
-func (m *Game) String() string { return proto.CompactTextString(m) }
-func (*Game) ProtoMessage()    {}
-func (*Game) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{7}
-}
-func (m *Game) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Game.Unmarshal(m, b)
-}
-func (m *Game) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Game.Marshal(b, m, deterministic)
-}
-func (dst *Game) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Game.Merge(dst, src)
-}
-func (m *Game) XXX_Size() int {
-	return xxx_messageInfo_Game.Size(m)
-}
-func (m *Game) XXX_DiscardUnknown() {
-	xxx_messageInfo_Game.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Game proto.InternalMessageInfo
-
-func (m *Game) GetInfo() *GameInfo {
-	if m != nil {
-		return m.Info
-	}
-	return nil
-}
-
-func (m *Game) GetGameStats() map[int32]*PlayerGameStats {
-	if m != nil {
-		return m.GameStats
-	}
-	return nil
-}
-
 type Stats struct {
 	StatsId                 int32    `protobuf:"varint,1,opt,name=StatsId,proto3" json:"StatsId"`
 	TwoPointFGA             int32    `protobuf:"varint,2,opt,name=TwoPointFGA,proto3" json:"TwoPointFGA"`
@@ -483,7 +351,7 @@ func (m *Stats) Reset()         { *m = Stats{} }
 func (m *Stats) String() string { return proto.CompactTextString(m) }
 func (*Stats) ProtoMessage()    {}
 func (*Stats) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{8}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{6}
 }
 func (m *Stats) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Stats.Unmarshal(m, b)
@@ -622,106 +490,6 @@ func (m *Stats) GetMinutesPlayed() int32 {
 	return 0
 }
 
-type PlayerGameStats struct {
-	GameInfo             *GameInfo `protobuf:"bytes,2,opt,name=GameInfo,proto3" json:"GameInfo"`
-	TeamId               int32     `protobuf:"varint,3,opt,name=TeamId,proto3" json:"TeamId"`
-	Stats                *Stats    `protobuf:"bytes,4,opt,name=Stats,proto3" json:"Stats"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
-}
-
-func (m *PlayerGameStats) Reset()         { *m = PlayerGameStats{} }
-func (m *PlayerGameStats) String() string { return proto.CompactTextString(m) }
-func (*PlayerGameStats) ProtoMessage()    {}
-func (*PlayerGameStats) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{9}
-}
-func (m *PlayerGameStats) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlayerGameStats.Unmarshal(m, b)
-}
-func (m *PlayerGameStats) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlayerGameStats.Marshal(b, m, deterministic)
-}
-func (dst *PlayerGameStats) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlayerGameStats.Merge(dst, src)
-}
-func (m *PlayerGameStats) XXX_Size() int {
-	return xxx_messageInfo_PlayerGameStats.Size(m)
-}
-func (m *PlayerGameStats) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlayerGameStats.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PlayerGameStats proto.InternalMessageInfo
-
-func (m *PlayerGameStats) GetGameInfo() *GameInfo {
-	if m != nil {
-		return m.GameInfo
-	}
-	return nil
-}
-
-func (m *PlayerGameStats) GetTeamId() int32 {
-	if m != nil {
-		return m.TeamId
-	}
-	return 0
-}
-
-func (m *PlayerGameStats) GetStats() *Stats {
-	if m != nil {
-		return m.Stats
-	}
-	return nil
-}
-
-type GameStatsSelector struct {
-	PlayerId             int32    `protobuf:"varint,1,opt,name=PlayerId,proto3" json:"PlayerId"`
-	GameId               int32    `protobuf:"varint,2,opt,name=GameId,proto3" json:"GameId"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GameStatsSelector) Reset()         { *m = GameStatsSelector{} }
-func (m *GameStatsSelector) String() string { return proto.CompactTextString(m) }
-func (*GameStatsSelector) ProtoMessage()    {}
-func (*GameStatsSelector) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{10}
-}
-func (m *GameStatsSelector) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GameStatsSelector.Unmarshal(m, b)
-}
-func (m *GameStatsSelector) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GameStatsSelector.Marshal(b, m, deterministic)
-}
-func (dst *GameStatsSelector) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GameStatsSelector.Merge(dst, src)
-}
-func (m *GameStatsSelector) XXX_Size() int {
-	return xxx_messageInfo_GameStatsSelector.Size(m)
-}
-func (m *GameStatsSelector) XXX_DiscardUnknown() {
-	xxx_messageInfo_GameStatsSelector.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GameStatsSelector proto.InternalMessageInfo
-
-func (m *GameStatsSelector) GetPlayerId() int32 {
-	if m != nil {
-		return m.PlayerId
-	}
-	return 0
-}
-
-func (m *GameStatsSelector) GetGameId() int32 {
-	if m != nil {
-		return m.GameId
-	}
-	return 0
-}
-
 type Empty struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -732,7 +500,7 @@ func (m *Empty) Reset()         { *m = Empty{} }
 func (m *Empty) String() string { return proto.CompactTextString(m) }
 func (*Empty) ProtoMessage()    {}
 func (*Empty) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{11}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{7}
 }
 func (m *Empty) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Empty.Unmarshal(m, b)
@@ -752,478 +520,6 @@ func (m *Empty) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Empty proto.InternalMessageInfo
 
-type GetCompetitionsResponse struct {
-	Competitions         []*Competition `protobuf:"bytes,1,rep,name=Competitions,proto3" json:"Competitions"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *GetCompetitionsResponse) Reset()         { *m = GetCompetitionsResponse{} }
-func (m *GetCompetitionsResponse) String() string { return proto.CompactTextString(m) }
-func (*GetCompetitionsResponse) ProtoMessage()    {}
-func (*GetCompetitionsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{12}
-}
-func (m *GetCompetitionsResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetCompetitionsResponse.Unmarshal(m, b)
-}
-func (m *GetCompetitionsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetCompetitionsResponse.Marshal(b, m, deterministic)
-}
-func (dst *GetCompetitionsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetCompetitionsResponse.Merge(dst, src)
-}
-func (m *GetCompetitionsResponse) XXX_Size() int {
-	return xxx_messageInfo_GetCompetitionsResponse.Size(m)
-}
-func (m *GetCompetitionsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetCompetitionsResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetCompetitionsResponse proto.InternalMessageInfo
-
-func (m *GetCompetitionsResponse) GetCompetitions() []*Competition {
-	if m != nil {
-		return m.Competitions
-	}
-	return nil
-}
-
-type GetTeamsForCompetitionResponse struct {
-	Teams                []*Team  `protobuf:"bytes,1,rep,name=Teams,proto3" json:"Teams"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetTeamsForCompetitionResponse) Reset()         { *m = GetTeamsForCompetitionResponse{} }
-func (m *GetTeamsForCompetitionResponse) String() string { return proto.CompactTextString(m) }
-func (*GetTeamsForCompetitionResponse) ProtoMessage()    {}
-func (*GetTeamsForCompetitionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{13}
-}
-func (m *GetTeamsForCompetitionResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetTeamsForCompetitionResponse.Unmarshal(m, b)
-}
-func (m *GetTeamsForCompetitionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetTeamsForCompetitionResponse.Marshal(b, m, deterministic)
-}
-func (dst *GetTeamsForCompetitionResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTeamsForCompetitionResponse.Merge(dst, src)
-}
-func (m *GetTeamsForCompetitionResponse) XXX_Size() int {
-	return xxx_messageInfo_GetTeamsForCompetitionResponse.Size(m)
-}
-func (m *GetTeamsForCompetitionResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTeamsForCompetitionResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTeamsForCompetitionResponse proto.InternalMessageInfo
-
-func (m *GetTeamsForCompetitionResponse) GetTeams() []*Team {
-	if m != nil {
-		return m.Teams
-	}
-	return nil
-}
-
-type GetGamesForPlayerResponse struct {
-	Games                []*Game  `protobuf:"bytes,1,rep,name=Games,proto3" json:"Games"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetGamesForPlayerResponse) Reset()         { *m = GetGamesForPlayerResponse{} }
-func (m *GetGamesForPlayerResponse) String() string { return proto.CompactTextString(m) }
-func (*GetGamesForPlayerResponse) ProtoMessage()    {}
-func (*GetGamesForPlayerResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{14}
-}
-func (m *GetGamesForPlayerResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetGamesForPlayerResponse.Unmarshal(m, b)
-}
-func (m *GetGamesForPlayerResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetGamesForPlayerResponse.Marshal(b, m, deterministic)
-}
-func (dst *GetGamesForPlayerResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetGamesForPlayerResponse.Merge(dst, src)
-}
-func (m *GetGamesForPlayerResponse) XXX_Size() int {
-	return xxx_messageInfo_GetGamesForPlayerResponse.Size(m)
-}
-func (m *GetGamesForPlayerResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetGamesForPlayerResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetGamesForPlayerResponse proto.InternalMessageInfo
-
-func (m *GetGamesForPlayerResponse) GetGames() []*Game {
-	if m != nil {
-		return m.Games
-	}
-	return nil
-}
-
-type GetGamesForTeamResponse struct {
-	Games                []*Game  `protobuf:"bytes,1,rep,name=Games,proto3" json:"Games"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetGamesForTeamResponse) Reset()         { *m = GetGamesForTeamResponse{} }
-func (m *GetGamesForTeamResponse) String() string { return proto.CompactTextString(m) }
-func (*GetGamesForTeamResponse) ProtoMessage()    {}
-func (*GetGamesForTeamResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{15}
-}
-func (m *GetGamesForTeamResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetGamesForTeamResponse.Unmarshal(m, b)
-}
-func (m *GetGamesForTeamResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetGamesForTeamResponse.Marshal(b, m, deterministic)
-}
-func (dst *GetGamesForTeamResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetGamesForTeamResponse.Merge(dst, src)
-}
-func (m *GetGamesForTeamResponse) XXX_Size() int {
-	return xxx_messageInfo_GetGamesForTeamResponse.Size(m)
-}
-func (m *GetGamesForTeamResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetGamesForTeamResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetGamesForTeamResponse proto.InternalMessageInfo
-
-func (m *GetGamesForTeamResponse) GetGames() []*Game {
-	if m != nil {
-		return m.Games
-	}
-	return nil
-}
-
-type GetTeamsForCompetitionRequest struct {
-	CompetitionId        int32    `protobuf:"varint,1,opt,name=CompetitionId,proto3" json:"CompetitionId"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetTeamsForCompetitionRequest) Reset()         { *m = GetTeamsForCompetitionRequest{} }
-func (m *GetTeamsForCompetitionRequest) String() string { return proto.CompactTextString(m) }
-func (*GetTeamsForCompetitionRequest) ProtoMessage()    {}
-func (*GetTeamsForCompetitionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{16}
-}
-func (m *GetTeamsForCompetitionRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetTeamsForCompetitionRequest.Unmarshal(m, b)
-}
-func (m *GetTeamsForCompetitionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetTeamsForCompetitionRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetTeamsForCompetitionRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTeamsForCompetitionRequest.Merge(dst, src)
-}
-func (m *GetTeamsForCompetitionRequest) XXX_Size() int {
-	return xxx_messageInfo_GetTeamsForCompetitionRequest.Size(m)
-}
-func (m *GetTeamsForCompetitionRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTeamsForCompetitionRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTeamsForCompetitionRequest proto.InternalMessageInfo
-
-func (m *GetTeamsForCompetitionRequest) GetCompetitionId() int32 {
-	if m != nil {
-		return m.CompetitionId
-	}
-	return 0
-}
-
-type GetTeamRequest struct {
-	TeamId               int32    `protobuf:"varint,1,opt,name=TeamId,proto3" json:"TeamId"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetTeamRequest) Reset()         { *m = GetTeamRequest{} }
-func (m *GetTeamRequest) String() string { return proto.CompactTextString(m) }
-func (*GetTeamRequest) ProtoMessage()    {}
-func (*GetTeamRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{17}
-}
-func (m *GetTeamRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetTeamRequest.Unmarshal(m, b)
-}
-func (m *GetTeamRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetTeamRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetTeamRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTeamRequest.Merge(dst, src)
-}
-func (m *GetTeamRequest) XXX_Size() int {
-	return xxx_messageInfo_GetTeamRequest.Size(m)
-}
-func (m *GetTeamRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTeamRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTeamRequest proto.InternalMessageInfo
-
-func (m *GetTeamRequest) GetTeamId() int32 {
-	if m != nil {
-		return m.TeamId
-	}
-	return 0
-}
-
-type GetGamesForTeamRequest struct {
-	TeamId               int32    `protobuf:"varint,1,opt,name=TeamId,proto3" json:"TeamId"`
-	CompetitionId        int32    `protobuf:"varint,2,opt,name=CompetitionId,proto3" json:"CompetitionId"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetGamesForTeamRequest) Reset()         { *m = GetGamesForTeamRequest{} }
-func (m *GetGamesForTeamRequest) String() string { return proto.CompactTextString(m) }
-func (*GetGamesForTeamRequest) ProtoMessage()    {}
-func (*GetGamesForTeamRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{18}
-}
-func (m *GetGamesForTeamRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetGamesForTeamRequest.Unmarshal(m, b)
-}
-func (m *GetGamesForTeamRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetGamesForTeamRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetGamesForTeamRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetGamesForTeamRequest.Merge(dst, src)
-}
-func (m *GetGamesForTeamRequest) XXX_Size() int {
-	return xxx_messageInfo_GetGamesForTeamRequest.Size(m)
-}
-func (m *GetGamesForTeamRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetGamesForTeamRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetGamesForTeamRequest proto.InternalMessageInfo
-
-func (m *GetGamesForTeamRequest) GetTeamId() int32 {
-	if m != nil {
-		return m.TeamId
-	}
-	return 0
-}
-
-func (m *GetGamesForTeamRequest) GetCompetitionId() int32 {
-	if m != nil {
-		return m.CompetitionId
-	}
-	return 0
-}
-
-type GetPlayerRequest struct {
-	PlayerId             int32    `protobuf:"varint,1,opt,name=PlayerId,proto3" json:"PlayerId"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetPlayerRequest) Reset()         { *m = GetPlayerRequest{} }
-func (m *GetPlayerRequest) String() string { return proto.CompactTextString(m) }
-func (*GetPlayerRequest) ProtoMessage()    {}
-func (*GetPlayerRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{19}
-}
-func (m *GetPlayerRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetPlayerRequest.Unmarshal(m, b)
-}
-func (m *GetPlayerRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetPlayerRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetPlayerRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetPlayerRequest.Merge(dst, src)
-}
-func (m *GetPlayerRequest) XXX_Size() int {
-	return xxx_messageInfo_GetPlayerRequest.Size(m)
-}
-func (m *GetPlayerRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetPlayerRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetPlayerRequest proto.InternalMessageInfo
-
-func (m *GetPlayerRequest) GetPlayerId() int32 {
-	if m != nil {
-		return m.PlayerId
-	}
-	return 0
-}
-
-type GetGameRequest struct {
-	GameId               int32    `protobuf:"varint,1,opt,name=GameId,proto3" json:"GameId"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetGameRequest) Reset()         { *m = GetGameRequest{} }
-func (m *GetGameRequest) String() string { return proto.CompactTextString(m) }
-func (*GetGameRequest) ProtoMessage()    {}
-func (*GetGameRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{20}
-}
-func (m *GetGameRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetGameRequest.Unmarshal(m, b)
-}
-func (m *GetGameRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetGameRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetGameRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetGameRequest.Merge(dst, src)
-}
-func (m *GetGameRequest) XXX_Size() int {
-	return xxx_messageInfo_GetGameRequest.Size(m)
-}
-func (m *GetGameRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetGameRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetGameRequest proto.InternalMessageInfo
-
-func (m *GetGameRequest) GetGameId() int32 {
-	if m != nil {
-		return m.GameId
-	}
-	return 0
-}
-
-type GetGamesForPlayerRequest struct {
-	GamesId              int32    `protobuf:"varint,1,opt,name=GamesId,proto3" json:"GamesId"`
-	TeamId               int32    `protobuf:"varint,2,opt,name=TeamId,proto3" json:"TeamId"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetGamesForPlayerRequest) Reset()         { *m = GetGamesForPlayerRequest{} }
-func (m *GetGamesForPlayerRequest) String() string { return proto.CompactTextString(m) }
-func (*GetGamesForPlayerRequest) ProtoMessage()    {}
-func (*GetGamesForPlayerRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{21}
-}
-func (m *GetGamesForPlayerRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetGamesForPlayerRequest.Unmarshal(m, b)
-}
-func (m *GetGamesForPlayerRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetGamesForPlayerRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetGamesForPlayerRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetGamesForPlayerRequest.Merge(dst, src)
-}
-func (m *GetGamesForPlayerRequest) XXX_Size() int {
-	return xxx_messageInfo_GetGamesForPlayerRequest.Size(m)
-}
-func (m *GetGamesForPlayerRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetGamesForPlayerRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetGamesForPlayerRequest proto.InternalMessageInfo
-
-func (m *GetGamesForPlayerRequest) GetGamesId() int32 {
-	if m != nil {
-		return m.GamesId
-	}
-	return 0
-}
-
-func (m *GetGamesForPlayerRequest) GetTeamId() int32 {
-	if m != nil {
-		return m.TeamId
-	}
-	return 0
-}
-
-type GetGamesOnDateRequest struct {
-	Date                 *Date    `protobuf:"bytes,1,opt,name=Date,proto3" json:"Date"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetGamesOnDateRequest) Reset()         { *m = GetGamesOnDateRequest{} }
-func (m *GetGamesOnDateRequest) String() string { return proto.CompactTextString(m) }
-func (*GetGamesOnDateRequest) ProtoMessage()    {}
-func (*GetGamesOnDateRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{22}
-}
-func (m *GetGamesOnDateRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetGamesOnDateRequest.Unmarshal(m, b)
-}
-func (m *GetGamesOnDateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetGamesOnDateRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetGamesOnDateRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetGamesOnDateRequest.Merge(dst, src)
-}
-func (m *GetGamesOnDateRequest) XXX_Size() int {
-	return xxx_messageInfo_GetGamesOnDateRequest.Size(m)
-}
-func (m *GetGamesOnDateRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetGamesOnDateRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetGamesOnDateRequest proto.InternalMessageInfo
-
-func (m *GetGamesOnDateRequest) GetDate() *Date {
-	if m != nil {
-		return m.Date
-	}
-	return nil
-}
-
-type GetGamesOnDateResponse struct {
-	Games                []*Game  `protobuf:"bytes,1,rep,name=Games,proto3" json:"Games"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetGamesOnDateResponse) Reset()         { *m = GetGamesOnDateResponse{} }
-func (m *GetGamesOnDateResponse) String() string { return proto.CompactTextString(m) }
-func (*GetGamesOnDateResponse) ProtoMessage()    {}
-func (*GetGamesOnDateResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{23}
-}
-func (m *GetGamesOnDateResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetGamesOnDateResponse.Unmarshal(m, b)
-}
-func (m *GetGamesOnDateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetGamesOnDateResponse.Marshal(b, m, deterministic)
-}
-func (dst *GetGamesOnDateResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetGamesOnDateResponse.Merge(dst, src)
-}
-func (m *GetGamesOnDateResponse) XXX_Size() int {
-	return xxx_messageInfo_GetGamesOnDateResponse.Size(m)
-}
-func (m *GetGamesOnDateResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetGamesOnDateResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetGamesOnDateResponse proto.InternalMessageInfo
-
-func (m *GetGamesOnDateResponse) GetGames() []*Game {
-	if m != nil {
-		return m.Games
-	}
-	return nil
-}
-
 type GetPlayerInfoRequest struct {
 	PlayerId             int32    `protobuf:"varint,1,opt,name=PlayerId,proto3" json:"PlayerId"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -1235,7 +531,7 @@ func (m *GetPlayerInfoRequest) Reset()         { *m = GetPlayerInfoRequest{} }
 func (m *GetPlayerInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerInfoRequest) ProtoMessage()    {}
 func (*GetPlayerInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{24}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{8}
 }
 func (m *GetPlayerInfoRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetPlayerInfoRequest.Unmarshal(m, b)
@@ -1276,7 +572,7 @@ func (m *PlayerProfile) Reset()         { *m = PlayerProfile{} }
 func (m *PlayerProfile) String() string { return proto.CompactTextString(m) }
 func (*PlayerProfile) ProtoMessage()    {}
 func (*PlayerProfile) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{25}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{9}
 }
 func (m *PlayerProfile) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerProfile.Unmarshal(m, b)
@@ -1325,20 +621,19 @@ func (m *PlayerProfile) GetDescription() string {
 }
 
 type PlayerInfo struct {
-	PlayerId             int32          `protobuf:"varint,1,opt,name=PlayerId,proto3" json:"PlayerId"`
-	Profile              *PlayerProfile `protobuf:"bytes,2,opt,name=Profile,proto3" json:"Profile"`
-	RecentGames          []*GameInfo    `protobuf:"bytes,3,rep,name=RecentGames,proto3" json:"RecentGames"`
-	RecentStats          []*Stats       `protobuf:"bytes,4,rep,name=RecentStats,proto3" json:"RecentStats"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	PlayerId             int32              `protobuf:"varint,1,opt,name=PlayerId,proto3" json:"PlayerId"`
+	Profile              *PlayerProfile     `protobuf:"bytes,2,opt,name=Profile,proto3" json:"Profile"`
+	RecentStats          []*PlayerGameStats `protobuf:"bytes,3,rep,name=RecentStats,proto3" json:"RecentStats"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
 }
 
 func (m *PlayerInfo) Reset()         { *m = PlayerInfo{} }
 func (m *PlayerInfo) String() string { return proto.CompactTextString(m) }
 func (*PlayerInfo) ProtoMessage()    {}
 func (*PlayerInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_d8b25b9222f442a5, []int{26}
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{10}
 }
 func (m *PlayerInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerInfo.Unmarshal(m, b)
@@ -1372,16 +667,149 @@ func (m *PlayerInfo) GetProfile() *PlayerProfile {
 	return nil
 }
 
-func (m *PlayerInfo) GetRecentGames() []*GameInfo {
+func (m *PlayerInfo) GetRecentStats() []*PlayerGameStats {
 	if m != nil {
-		return m.RecentGames
+		return m.RecentStats
 	}
 	return nil
 }
 
-func (m *PlayerInfo) GetRecentStats() []*Stats {
+type PlayerGameStats struct {
+	GameInfo             *GameInfo `protobuf:"bytes,1,opt,name=GameInfo,proto3" json:"GameInfo"`
+	TeamId               int32     `protobuf:"varint,2,opt,name=TeamId,proto3" json:"TeamId"`
+	Stats                *Stats    `protobuf:"bytes,3,opt,name=Stats,proto3" json:"Stats"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *PlayerGameStats) Reset()         { *m = PlayerGameStats{} }
+func (m *PlayerGameStats) String() string { return proto.CompactTextString(m) }
+func (*PlayerGameStats) ProtoMessage()    {}
+func (*PlayerGameStats) Descriptor() ([]byte, []int) {
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{11}
+}
+func (m *PlayerGameStats) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PlayerGameStats.Unmarshal(m, b)
+}
+func (m *PlayerGameStats) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PlayerGameStats.Marshal(b, m, deterministic)
+}
+func (dst *PlayerGameStats) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PlayerGameStats.Merge(dst, src)
+}
+func (m *PlayerGameStats) XXX_Size() int {
+	return xxx_messageInfo_PlayerGameStats.Size(m)
+}
+func (m *PlayerGameStats) XXX_DiscardUnknown() {
+	xxx_messageInfo_PlayerGameStats.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PlayerGameStats proto.InternalMessageInfo
+
+func (m *PlayerGameStats) GetGameInfo() *GameInfo {
 	if m != nil {
-		return m.RecentStats
+		return m.GameInfo
+	}
+	return nil
+}
+
+func (m *PlayerGameStats) GetTeamId() int32 {
+	if m != nil {
+		return m.TeamId
+	}
+	return 0
+}
+
+func (m *PlayerGameStats) GetStats() *Stats {
+	if m != nil {
+		return m.Stats
+	}
+	return nil
+}
+
+type GameInfo struct {
+	GameId               int32        `protobuf:"varint,1,opt,name=GameId,proto3" json:"GameId"`
+	HomeTeam             *Team        `protobuf:"bytes,2,opt,name=HomeTeam,proto3" json:"HomeTeam"`
+	AwayTeam             *Team        `protobuf:"bytes,3,opt,name=AwayTeam,proto3" json:"AwayTeam"`
+	Location             *Location    `protobuf:"bytes,4,opt,name=Location,proto3" json:"Location"`
+	Competition          *Competition `protobuf:"bytes,5,opt,name=Competition,proto3" json:"Competition"`
+	Date                 *Date        `protobuf:"bytes,6,opt,name=Date,proto3" json:"Date"`
+	Time                 *Time        `protobuf:"bytes,7,opt,name=Time,proto3" json:"Time"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *GameInfo) Reset()         { *m = GameInfo{} }
+func (m *GameInfo) String() string { return proto.CompactTextString(m) }
+func (*GameInfo) ProtoMessage()    {}
+func (*GameInfo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_heroball_87e7fabe8be2ba42, []int{12}
+}
+func (m *GameInfo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GameInfo.Unmarshal(m, b)
+}
+func (m *GameInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GameInfo.Marshal(b, m, deterministic)
+}
+func (dst *GameInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GameInfo.Merge(dst, src)
+}
+func (m *GameInfo) XXX_Size() int {
+	return xxx_messageInfo_GameInfo.Size(m)
+}
+func (m *GameInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_GameInfo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GameInfo proto.InternalMessageInfo
+
+func (m *GameInfo) GetGameId() int32 {
+	if m != nil {
+		return m.GameId
+	}
+	return 0
+}
+
+func (m *GameInfo) GetHomeTeam() *Team {
+	if m != nil {
+		return m.HomeTeam
+	}
+	return nil
+}
+
+func (m *GameInfo) GetAwayTeam() *Team {
+	if m != nil {
+		return m.AwayTeam
+	}
+	return nil
+}
+
+func (m *GameInfo) GetLocation() *Location {
+	if m != nil {
+		return m.Location
+	}
+	return nil
+}
+
+func (m *GameInfo) GetCompetition() *Competition {
+	if m != nil {
+		return m.Competition
+	}
+	return nil
+}
+
+func (m *GameInfo) GetDate() *Date {
+	if m != nil {
+		return m.Date
+	}
+	return nil
+}
+
+func (m *GameInfo) GetTime() *Time {
+	if m != nil {
+		return m.Time
 	}
 	return nil
 }
@@ -1393,28 +821,13 @@ func init() {
 	proto.RegisterType((*Location)(nil), "pb.Location")
 	proto.RegisterType((*Date)(nil), "pb.Date")
 	proto.RegisterType((*Time)(nil), "pb.Time")
-	proto.RegisterType((*GameInfo)(nil), "pb.GameInfo")
-	proto.RegisterType((*Game)(nil), "pb.Game")
-	proto.RegisterMapType((map[int32]*PlayerGameStats)(nil), "pb.Game.GameStatsEntry")
 	proto.RegisterType((*Stats)(nil), "pb.Stats")
-	proto.RegisterType((*PlayerGameStats)(nil), "pb.PlayerGameStats")
-	proto.RegisterType((*GameStatsSelector)(nil), "pb.GameStatsSelector")
 	proto.RegisterType((*Empty)(nil), "pb.Empty")
-	proto.RegisterType((*GetCompetitionsResponse)(nil), "pb.GetCompetitionsResponse")
-	proto.RegisterType((*GetTeamsForCompetitionResponse)(nil), "pb.GetTeamsForCompetitionResponse")
-	proto.RegisterType((*GetGamesForPlayerResponse)(nil), "pb.GetGamesForPlayerResponse")
-	proto.RegisterType((*GetGamesForTeamResponse)(nil), "pb.GetGamesForTeamResponse")
-	proto.RegisterType((*GetTeamsForCompetitionRequest)(nil), "pb.GetTeamsForCompetitionRequest")
-	proto.RegisterType((*GetTeamRequest)(nil), "pb.GetTeamRequest")
-	proto.RegisterType((*GetGamesForTeamRequest)(nil), "pb.GetGamesForTeamRequest")
-	proto.RegisterType((*GetPlayerRequest)(nil), "pb.GetPlayerRequest")
-	proto.RegisterType((*GetGameRequest)(nil), "pb.GetGameRequest")
-	proto.RegisterType((*GetGamesForPlayerRequest)(nil), "pb.GetGamesForPlayerRequest")
-	proto.RegisterType((*GetGamesOnDateRequest)(nil), "pb.GetGamesOnDateRequest")
-	proto.RegisterType((*GetGamesOnDateResponse)(nil), "pb.GetGamesOnDateResponse")
 	proto.RegisterType((*GetPlayerInfoRequest)(nil), "pb.GetPlayerInfoRequest")
 	proto.RegisterType((*PlayerProfile)(nil), "pb.PlayerProfile")
 	proto.RegisterType((*PlayerInfo)(nil), "pb.PlayerInfo")
+	proto.RegisterType((*PlayerGameStats)(nil), "pb.PlayerGameStats")
+	proto.RegisterType((*GameInfo)(nil), "pb.GameInfo")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1430,18 +843,6 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type HeroBallServiceClient interface {
 	GetPlayerInfo(ctx context.Context, in *GetPlayerInfoRequest, opts ...grpc.CallOption) (*PlayerInfo, error)
-	GetCompetitions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GetCompetitionsResponse, error)
-	GetTeamsForCompetition(ctx context.Context, in *GetTeamsForCompetitionRequest, opts ...grpc.CallOption) (*GetTeamsForCompetitionResponse, error)
-	GetTeam(ctx context.Context, in *GetTeamRequest, opts ...grpc.CallOption) (*Team, error)
-	GetGamesForTeam(ctx context.Context, in *GetGamesForTeamRequest, opts ...grpc.CallOption) (*GetGamesForTeamResponse, error)
-	GetPlayer(ctx context.Context, in *GetPlayerRequest, opts ...grpc.CallOption) (*Player, error)
-	// rpc GetTopAverageStats(TopAverageStatsSelector) returns (TopAverageStatsResponse);
-	GetGamesOnDate(ctx context.Context, in *GetGamesOnDateRequest, opts ...grpc.CallOption) (*GetGamesOnDateResponse, error)
-	GetGame(ctx context.Context, in *GetPlayerRequest, opts ...grpc.CallOption) (*Game, error)
-	GetGamesForPlayer(ctx context.Context, in *GetGamesForPlayerRequest, opts ...grpc.CallOption) (*GetGamesForPlayerResponse, error)
-	GetPlayerGameStats(ctx context.Context, in *GameStatsSelector, opts ...grpc.CallOption) (*PlayerGameStats, error)
-	// rpc GetPlayerAverageStats(AverageStatsSelector) returns (PlayerAverageStats);
-	AddPlayerGameStats(ctx context.Context, in *PlayerGameStats, opts ...grpc.CallOption) (*Empty, error)
 }
 
 type heroBallServiceClient struct {
@@ -1461,111 +862,9 @@ func (c *heroBallServiceClient) GetPlayerInfo(ctx context.Context, in *GetPlayer
 	return out, nil
 }
 
-func (c *heroBallServiceClient) GetCompetitions(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GetCompetitionsResponse, error) {
-	out := new(GetCompetitionsResponse)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetCompetitions", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) GetTeamsForCompetition(ctx context.Context, in *GetTeamsForCompetitionRequest, opts ...grpc.CallOption) (*GetTeamsForCompetitionResponse, error) {
-	out := new(GetTeamsForCompetitionResponse)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetTeamsForCompetition", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) GetTeam(ctx context.Context, in *GetTeamRequest, opts ...grpc.CallOption) (*Team, error) {
-	out := new(Team)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetTeam", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) GetGamesForTeam(ctx context.Context, in *GetGamesForTeamRequest, opts ...grpc.CallOption) (*GetGamesForTeamResponse, error) {
-	out := new(GetGamesForTeamResponse)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetGamesForTeam", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) GetPlayer(ctx context.Context, in *GetPlayerRequest, opts ...grpc.CallOption) (*Player, error) {
-	out := new(Player)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetPlayer", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) GetGamesOnDate(ctx context.Context, in *GetGamesOnDateRequest, opts ...grpc.CallOption) (*GetGamesOnDateResponse, error) {
-	out := new(GetGamesOnDateResponse)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetGamesOnDate", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) GetGame(ctx context.Context, in *GetPlayerRequest, opts ...grpc.CallOption) (*Game, error) {
-	out := new(Game)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetGame", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) GetGamesForPlayer(ctx context.Context, in *GetGamesForPlayerRequest, opts ...grpc.CallOption) (*GetGamesForPlayerResponse, error) {
-	out := new(GetGamesForPlayerResponse)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetGamesForPlayer", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) GetPlayerGameStats(ctx context.Context, in *GameStatsSelector, opts ...grpc.CallOption) (*PlayerGameStats, error) {
-	out := new(PlayerGameStats)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/GetPlayerGameStats", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *heroBallServiceClient) AddPlayerGameStats(ctx context.Context, in *PlayerGameStats, opts ...grpc.CallOption) (*Empty, error) {
-	out := new(Empty)
-	err := c.cc.Invoke(ctx, "/pb.HeroBallService/AddPlayerGameStats", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // HeroBallServiceServer is the server API for HeroBallService service.
 type HeroBallServiceServer interface {
 	GetPlayerInfo(context.Context, *GetPlayerInfoRequest) (*PlayerInfo, error)
-	GetCompetitions(context.Context, *Empty) (*GetCompetitionsResponse, error)
-	GetTeamsForCompetition(context.Context, *GetTeamsForCompetitionRequest) (*GetTeamsForCompetitionResponse, error)
-	GetTeam(context.Context, *GetTeamRequest) (*Team, error)
-	GetGamesForTeam(context.Context, *GetGamesForTeamRequest) (*GetGamesForTeamResponse, error)
-	GetPlayer(context.Context, *GetPlayerRequest) (*Player, error)
-	// rpc GetTopAverageStats(TopAverageStatsSelector) returns (TopAverageStatsResponse);
-	GetGamesOnDate(context.Context, *GetGamesOnDateRequest) (*GetGamesOnDateResponse, error)
-	GetGame(context.Context, *GetPlayerRequest) (*Game, error)
-	GetGamesForPlayer(context.Context, *GetGamesForPlayerRequest) (*GetGamesForPlayerResponse, error)
-	GetPlayerGameStats(context.Context, *GameStatsSelector) (*PlayerGameStats, error)
-	// rpc GetPlayerAverageStats(AverageStatsSelector) returns (PlayerAverageStats);
-	AddPlayerGameStats(context.Context, *PlayerGameStats) (*Empty, error)
 }
 
 func RegisterHeroBallServiceServer(s *grpc.Server, srv HeroBallServiceServer) {
@@ -1590,186 +889,6 @@ func _HeroBallService_GetPlayerInfo_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _HeroBallService_GetCompetitions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetCompetitions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetCompetitions",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetCompetitions(ctx, req.(*Empty))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_GetTeamsForCompetition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTeamsForCompetitionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetTeamsForCompetition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetTeamsForCompetition",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetTeamsForCompetition(ctx, req.(*GetTeamsForCompetitionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_GetTeam_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTeamRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetTeam(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetTeam",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetTeam(ctx, req.(*GetTeamRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_GetGamesForTeam_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGamesForTeamRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetGamesForTeam(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetGamesForTeam",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetGamesForTeam(ctx, req.(*GetGamesForTeamRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_GetPlayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetPlayer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetPlayer",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetPlayer(ctx, req.(*GetPlayerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_GetGamesOnDate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGamesOnDateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetGamesOnDate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetGamesOnDate",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetGamesOnDate(ctx, req.(*GetGamesOnDateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_GetGame_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPlayerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetGame(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetGame",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetGame(ctx, req.(*GetPlayerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_GetGamesForPlayer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGamesForPlayerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetGamesForPlayer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetGamesForPlayer",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetGamesForPlayer(ctx, req.(*GetGamesForPlayerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_GetPlayerGameStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GameStatsSelector)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).GetPlayerGameStats(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/GetPlayerGameStats",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).GetPlayerGameStats(ctx, req.(*GameStatsSelector))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HeroBallService_AddPlayerGameStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PlayerGameStats)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HeroBallServiceServer).AddPlayerGameStats(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/pb.HeroBallService/AddPlayerGameStats",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeroBallServiceServer).AddPlayerGameStats(ctx, req.(*PlayerGameStats))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _HeroBallService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "pb.HeroBallService",
 	HandlerType: (*HeroBallServiceServer)(nil),
@@ -1778,133 +897,66 @@ var _HeroBallService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "GetPlayerInfo",
 			Handler:    _HeroBallService_GetPlayerInfo_Handler,
 		},
-		{
-			MethodName: "GetCompetitions",
-			Handler:    _HeroBallService_GetCompetitions_Handler,
-		},
-		{
-			MethodName: "GetTeamsForCompetition",
-			Handler:    _HeroBallService_GetTeamsForCompetition_Handler,
-		},
-		{
-			MethodName: "GetTeam",
-			Handler:    _HeroBallService_GetTeam_Handler,
-		},
-		{
-			MethodName: "GetGamesForTeam",
-			Handler:    _HeroBallService_GetGamesForTeam_Handler,
-		},
-		{
-			MethodName: "GetPlayer",
-			Handler:    _HeroBallService_GetPlayer_Handler,
-		},
-		{
-			MethodName: "GetGamesOnDate",
-			Handler:    _HeroBallService_GetGamesOnDate_Handler,
-		},
-		{
-			MethodName: "GetGame",
-			Handler:    _HeroBallService_GetGame_Handler,
-		},
-		{
-			MethodName: "GetGamesForPlayer",
-			Handler:    _HeroBallService_GetGamesForPlayer_Handler,
-		},
-		{
-			MethodName: "GetPlayerGameStats",
-			Handler:    _HeroBallService_GetPlayerGameStats_Handler,
-		},
-		{
-			MethodName: "AddPlayerGameStats",
-			Handler:    _HeroBallService_AddPlayerGameStats_Handler,
-		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "heroball.proto",
 }
 
-func init() { proto.RegisterFile("heroball.proto", fileDescriptor_heroball_d8b25b9222f442a5) }
+func init() { proto.RegisterFile("heroball.proto", fileDescriptor_heroball_87e7fabe8be2ba42) }
 
-var fileDescriptor_heroball_d8b25b9222f442a5 = []byte{
-	// 1273 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x57, 0xef, 0x6e, 0x1b, 0x45,
-	0x10, 0x97, 0xff, 0x5c, 0x6c, 0x8f, 0x1b, 0x3b, 0xd9, 0x26, 0xcd, 0xf5, 0x48, 0x83, 0x39, 0x55,
-	0x90, 0x52, 0x70, 0x68, 0xda, 0x4a, 0x69, 0x91, 0x50, 0x9d, 0x26, 0x71, 0x8b, 0xea, 0x36, 0x5c,
-	0x0c, 0x12, 0x9f, 0xd0, 0xc5, 0xde, 0xc4, 0xa7, 0xde, 0xdd, 0x9a, 0xbb, 0xb5, 0x23, 0x7f, 0x85,
-	0x0f, 0x3c, 0x00, 0xe2, 0x45, 0x78, 0x15, 0x5e, 0x01, 0xf1, 0x1c, 0x68, 0x67, 0xf7, 0xfe, 0xd9,
-	0x67, 0x2b, 0x9f, 0xbc, 0xf3, 0x9b, 0xdf, 0xcc, 0xee, 0xcc, 0xec, 0xcc, 0x9e, 0xa1, 0x31, 0xa2,
-	0x01, 0xbb, 0xb4, 0x5d, 0xb7, 0x3d, 0x0e, 0x18, 0x67, 0xa4, 0x38, 0xbe, 0x34, 0x76, 0xaf, 0x19,
-	0xbb, 0x76, 0xe9, 0x81, 0x3d, 0x76, 0x0e, 0x6c, 0xdf, 0x67, 0xdc, 0xe6, 0x0e, 0xf3, 0x43, 0xc9,
-	0x30, 0xfb, 0xb0, 0x76, 0xee, 0xda, 0x33, 0x1a, 0x10, 0x03, 0xaa, 0x72, 0xf5, 0x76, 0xa8, 0x17,
-	0x5a, 0x85, 0x7d, 0xcd, 0x8a, 0x65, 0x42, 0xa0, 0xfc, 0xde, 0xf6, 0xa8, 0x5e, 0x6c, 0x15, 0xf6,
-	0x6b, 0x16, 0xae, 0x91, 0xcf, 0x42, 0x47, 0x38, 0xd3, 0x4b, 0x88, 0xc7, 0xb2, 0x39, 0x80, 0xfa,
-	0x6b, 0xe6, 0x8d, 0x29, 0x47, 0x91, 0x3c, 0x84, 0xf5, 0x94, 0x18, 0xfb, 0xcf, 0x82, 0xcb, 0x36,
-	0x39, 0x71, 0xa6, 0x4e, 0x98, 0xda, 0x24, 0x92, 0xcd, 0x43, 0x28, 0xf7, 0xa9, 0xed, 0x91, 0x7b,
-	0xb0, 0x26, 0x7e, 0x63, 0xb7, 0x4a, 0xca, 0xf3, 0x67, 0x7e, 0x07, 0xd5, 0x77, 0x6c, 0x80, 0x19,
-	0x20, 0x7b, 0x00, 0xd1, 0x3a, 0xb6, 0x4d, 0x21, 0xb9, 0xf6, 0xc7, 0x50, 0x3e, 0xb1, 0x39, 0x15,
-	0xba, 0x19, 0xb5, 0x03, 0x65, 0x85, 0x6b, 0xb2, 0x05, 0x9a, 0xc7, 0x7c, 0x3e, 0x42, 0x03, 0xcd,
-	0x92, 0x02, 0xd9, 0x80, 0xd2, 0xd0, 0x9e, 0xe1, 0xe1, 0x35, 0x4b, 0x2c, 0xf1, 0xdc, 0x8e, 0x87,
-	0x3e, 0x46, 0x6c, 0x12, 0xfb, 0x10, 0x6b, 0x11, 0x8b, 0xe7, 0xf8, 0x13, 0x4e, 0x95, 0x13, 0x25,
-	0x99, 0x7f, 0x14, 0xa1, 0xda, 0xb5, 0x3d, 0xfa, 0xd6, 0xbf, 0x62, 0x82, 0x84, 0xeb, 0x38, 0x60,
-	0x29, 0x91, 0x87, 0x50, 0x7d, 0xc3, 0x3c, 0x2a, 0xc2, 0x47, 0xf3, 0xfa, 0x61, 0xb5, 0x3d, 0xbe,
-	0x6c, 0x0b, 0xd9, 0x8a, 0x35, 0x82, 0xd5, 0xb9, 0xb1, 0x67, 0xc8, 0x2a, 0xcd, 0xb3, 0x22, 0x0d,
-	0xd9, 0x4f, 0x12, 0xa5, 0x97, 0x91, 0x75, 0x47, 0xb0, 0x22, 0xcc, 0x4a, 0xd2, 0xf8, 0x24, 0x53,
-	0x6b, 0x5d, 0x43, 0x72, 0x53, 0x90, 0x53, 0xb0, 0x95, 0xb9, 0x0f, 0xbb, 0x32, 0x8b, 0xfa, 0x5a,
-	0xb2, 0xbd, 0x90, 0x2d, 0x99, 0xdb, 0x5d, 0x99, 0x1f, 0xbd, 0x92, 0x3a, 0x9c, 0xe3, 0x51, 0x0b,
-	0x51, 0xf3, 0xef, 0x02, 0x94, 0x45, 0xbc, 0xa4, 0x05, 0x65, 0x91, 0x0d, 0x15, 0x29, 0x9e, 0x2e,
-	0xca, 0x90, 0x85, 0x1a, 0xf2, 0x1c, 0x6a, 0x02, 0xb9, 0xe0, 0x36, 0x0f, 0xf5, 0x52, 0xab, 0xb4,
-	0x5f, 0x3f, 0xdc, 0x89, 0x68, 0xed, 0x58, 0x73, 0xea, 0xf3, 0x60, 0x66, 0x25, 0x4c, 0xe3, 0x07,
-	0x68, 0x64, 0x95, 0xa2, 0x86, 0x1f, 0xe9, 0x4c, 0x65, 0x5b, 0x2c, 0xc9, 0x23, 0xd0, 0xa6, 0xb6,
-	0x3b, 0xa1, 0x6a, 0xf7, 0xbb, 0xc2, 0xad, 0xec, 0x96, 0xd8, 0xd4, 0x92, 0x8c, 0x97, 0xc5, 0xa3,
-	0x82, 0xf9, 0x97, 0x06, 0x1a, 0x82, 0x44, 0x87, 0x0a, 0x2e, 0xe2, 0xe2, 0x45, 0x22, 0x69, 0x41,
-	0xbd, 0x7f, 0xc3, 0xce, 0x99, 0xe3, 0xf3, 0xb3, 0x6e, 0x47, 0xd5, 0x3f, 0x0d, 0x65, 0x19, 0x3d,
-	0x75, 0xa5, 0xd2, 0x90, 0x68, 0xb4, 0xfe, 0x28, 0xa0, 0x54, 0x02, 0xbd, 0x0e, 0x96, 0x4e, 0xb3,
-	0xb2, 0xe0, 0x1c, 0xab, 0xdb, 0xc3, 0x9a, 0x65, 0x59, 0xdd, 0x1e, 0xf9, 0x06, 0xee, 0x9e, 0x05,
-	0x94, 0xf6, 0x47, 0x01, 0xbb, 0x09, 0x3b, 0x9c, 0x53, 0x6f, 0xcc, 0xe9, 0x10, 0x6b, 0xa6, 0x59,
-	0x79, 0x2a, 0xf2, 0x39, 0x34, 0x12, 0xb8, 0x67, 0x0f, 0x65, 0x09, 0x35, 0x6b, 0x0e, 0x25, 0x5f,
-	0xc1, 0xe6, 0x87, 0xab, 0x2b, 0xea, 0x87, 0xce, 0x94, 0x5a, 0xf4, 0x92, 0x4d, 0xfc, 0x61, 0xa8,
-	0x57, 0x91, 0xba, 0xa8, 0x10, 0xec, 0x13, 0x3a, 0xcf, 0xae, 0x49, 0xf6, 0x82, 0x42, 0xe4, 0xb7,
-	0x13, 0x86, 0x4e, 0xc8, 0x43, 0x1d, 0x64, 0x7e, 0x95, 0x28, 0xba, 0xe6, 0xd8, 0x65, 0x83, 0x8f,
-	0xa1, 0x5e, 0x97, 0x5d, 0x23, 0x25, 0x81, 0x5f, 0x70, 0x6a, 0xbb, 0xa1, 0x7e, 0x47, 0xe2, 0x52,
-	0x22, 0xbb, 0x50, 0xeb, 0x4f, 0x02, 0x9f, 0x4d, 0x69, 0x10, 0xea, 0xeb, 0xa8, 0x4a, 0x00, 0xd2,
-	0x06, 0x62, 0xd1, 0xeb, 0x89, 0x6b, 0x07, 0x67, 0x6c, 0xe2, 0x86, 0x67, 0x2c, 0x18, 0xd0, 0xa1,
-	0xde, 0x40, 0x5a, 0x8e, 0x86, 0x3c, 0x83, 0xed, 0x34, 0xfa, 0x9a, 0x79, 0x9e, 0xc3, 0x45, 0x3e,
-	0x9b, 0x68, 0x92, 0xaf, 0x24, 0x47, 0xb0, 0xd3, 0xa7, 0x83, 0x91, 0xef, 0x0c, 0x6c, 0x77, 0xce,
-	0x6e, 0x03, 0xed, 0x96, 0xa9, 0x45, 0x8d, 0x7b, 0x38, 0x3a, 0x42, 0xbc, 0x96, 0x43, 0x7d, 0x53,
-	0xd6, 0x38, 0x03, 0x9a, 0x1c, 0x9a, 0x73, 0xb7, 0x56, 0x34, 0x7e, 0xd4, 0x46, 0xb9, 0xad, 0x95,
-	0x19, 0x43, 0x6a, 0xee, 0x96, 0x32, 0x73, 0xf7, 0x53, 0x75, 0xd7, 0xd5, 0xdc, 0xa8, 0x09, 0x73,
-	0xd5, 0x11, 0xf8, 0x63, 0x76, 0x61, 0x33, 0xde, 0xef, 0x82, 0xba, 0x74, 0xc0, 0xd9, 0xea, 0xe7,
-	0x27, 0x19, 0x78, 0xc5, 0xf4, 0xc0, 0x33, 0x2b, 0xa0, 0x9d, 0x7a, 0x63, 0x3e, 0x33, 0xdf, 0xc3,
-	0x4e, 0x97, 0xf2, 0xd4, 0x88, 0x09, 0x2d, 0x1a, 0x8e, 0x99, 0x1f, 0x52, 0xf2, 0x14, 0xee, 0xa4,
-	0x71, 0xbd, 0x80, 0x73, 0x60, 0x61, 0x3e, 0x65, 0x48, 0xe6, 0x2b, 0xd8, 0xeb, 0x52, 0x2e, 0xe2,
-	0x11, 0xf5, 0x4b, 0xf3, 0x22, 0xb7, 0x7b, 0xa0, 0xa1, 0x5a, 0xf9, 0x4b, 0x46, 0xa8, 0x84, 0xcd,
-	0x6f, 0xe1, 0x7e, 0x97, 0x72, 0x71, 0x4e, 0xe1, 0x41, 0x46, 0x92, 0x36, 0x46, 0x4d, 0xda, 0x58,
-	0x00, 0x96, 0x84, 0xcd, 0x17, 0x18, 0x4e, 0x64, 0x8c, 0x6e, 0x6f, 0x6b, 0x7a, 0x0a, 0x0f, 0x96,
-	0x9d, 0xfc, 0xd7, 0x09, 0x0d, 0xf9, 0xed, 0xde, 0x62, 0x73, 0x1f, 0x1a, 0xca, 0x4d, 0x64, 0xb7,
-	0xe4, 0x95, 0x35, 0x7f, 0x82, 0x7b, 0x0b, 0x67, 0x5d, 0x69, 0xb1, 0x78, 0x82, 0x62, 0xde, 0x09,
-	0xda, 0xb0, 0xd1, 0xa5, 0x3c, 0x4a, 0x9c, 0xf4, 0xb8, 0xe2, 0x8e, 0xa8, 0x13, 0x63, 0x2a, 0x92,
-	0xfd, 0xf3, 0x9e, 0x49, 0xf3, 0x1d, 0xe8, 0x39, 0xa5, 0x91, 0x36, 0x3a, 0x54, 0x50, 0x91, 0x8c,
-	0x67, 0x25, 0xa6, 0xa2, 0x29, 0x66, 0xe2, 0x7f, 0x0e, 0xdb, 0x91, 0xb7, 0x0f, 0x3e, 0xbe, 0x62,
-	0xca, 0x55, 0xf4, 0xc8, 0x15, 0xf2, 0x1e, 0x39, 0xf3, 0x28, 0x49, 0x5b, 0x64, 0x76, 0xcb, 0x0a,
-	0x1f, 0xc2, 0x56, 0x9c, 0x18, 0xec, 0xc8, 0x5b, 0x24, 0xe7, 0xf7, 0x02, 0xac, 0x4b, 0xe1, 0x3c,
-	0x60, 0x57, 0x8e, 0x4b, 0xe3, 0x8f, 0x9b, 0x42, 0xea, 0x63, 0xab, 0x05, 0xf5, 0x9f, 0xa9, 0x1d,
-	0x5c, 0x70, 0x3b, 0x10, 0x13, 0x46, 0xbd, 0x40, 0x29, 0x68, 0xd5, 0x37, 0x9f, 0xb0, 0x3e, 0xa1,
-	0xe1, 0x20, 0x70, 0xc6, 0xf1, 0x47, 0x43, 0xcd, 0x4a, 0x43, 0xe2, 0xe9, 0x86, 0xe4, 0xdc, 0x2b,
-	0x3b, 0xfe, 0x31, 0x54, 0xd4, 0x49, 0xd5, 0x10, 0xda, 0x4c, 0x5e, 0x58, 0xa5, 0xb0, 0x22, 0x06,
-	0x69, 0x43, 0xdd, 0xa2, 0x03, 0xea, 0xcb, 0x74, 0xaa, 0x97, 0x3e, 0x3b, 0xb5, 0xd2, 0x04, 0xf2,
-	0x38, 0xe2, 0x47, 0x63, 0xaa, 0x94, 0x1d, 0x53, 0x69, 0xed, 0xe1, 0x7f, 0x1a, 0x34, 0xdf, 0xd0,
-	0x80, 0x1d, 0xdb, 0xae, 0x7b, 0x41, 0x83, 0xa9, 0x33, 0xa0, 0xe4, 0x47, 0x58, 0xcf, 0x94, 0x80,
-	0xe8, 0xb8, 0x59, 0x4e, 0x55, 0x8c, 0x46, 0x72, 0x6e, 0x01, 0x9b, 0xc6, 0x6f, 0xff, 0xfc, 0xfb,
-	0x67, 0x71, 0xcb, 0x6c, 0x1e, 0x4c, 0x9f, 0x1c, 0x8c, 0x11, 0x3f, 0x70, 0xfc, 0x2b, 0xf6, 0xb2,
-	0xf0, 0x25, 0x79, 0x01, 0xcd, 0xb9, 0x29, 0x46, 0xf0, 0x54, 0x38, 0xe3, 0x8c, 0x4f, 0xd4, 0x1e,
-	0xb9, 0x53, 0xee, 0x17, 0xbc, 0x4e, 0x39, 0x6d, 0x4f, 0x3e, 0x53, 0x66, 0xcb, 0x47, 0x82, 0x61,
-	0xae, 0xa2, 0xa8, 0x0d, 0xbe, 0x80, 0x8a, 0x62, 0x10, 0x92, 0xa2, 0x47, 0x2e, 0xe2, 0xf9, 0x47,
-	0xbe, 0xc7, 0x20, 0xd2, 0xf3, 0x80, 0x18, 0xca, 0x20, 0x67, 0x48, 0xc4, 0x51, 0xe5, 0x0e, 0xbb,
-	0xaf, 0xa1, 0x16, 0x27, 0x95, 0x6c, 0x65, 0x72, 0x1c, 0xd9, 0x43, 0x92, 0x5f, 0xd2, 0x8d, 0x47,
-	0x80, 0xea, 0x29, 0x72, 0x3f, 0xed, 0x3d, 0xd3, 0x9e, 0x86, 0x91, 0xa7, 0x52, 0xfb, 0x3e, 0xc2,
-	0x60, 0xf1, 0x2b, 0x33, 0x7f, 0xd7, 0xb8, 0x29, 0xc9, 0x39, 0x6c, 0x2e, 0x0c, 0x13, 0xb2, 0x3b,
-	0x17, 0x54, 0xd6, 0xf8, 0xc1, 0x12, 0xad, 0xda, 0xfc, 0x15, 0x90, 0x78, 0xbf, 0xe4, 0x59, 0xde,
-	0x8e, 0x76, 0xcc, 0xbc, 0x9a, 0x46, 0xde, 0x87, 0x27, 0x79, 0x06, 0xa4, 0x33, 0x1c, 0xce, 0xa3,
-	0x79, 0x54, 0x23, 0xb9, 0x5f, 0x97, 0x6b, 0xf8, 0x87, 0xf0, 0xe9, 0xff, 0x01, 0x00, 0x00, 0xff,
-	0xff, 0x86, 0x18, 0x04, 0x33, 0x44, 0x0e, 0x00, 0x00,
+var fileDescriptor_heroball_87e7fabe8be2ba42 = []byte{
+	// 841 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x55, 0xcf, 0x6f, 0xeb, 0x44,
+	0x10, 0x56, 0x7e, 0xb5, 0xe9, 0xf8, 0xb5, 0x79, 0xdd, 0x57, 0xc0, 0xaa, 0x2a, 0x88, 0xac, 0x27,
+	0x54, 0x01, 0x6a, 0x78, 0x01, 0x24, 0xc4, 0x01, 0x29, 0x7d, 0xa5, 0x79, 0x48, 0x04, 0x2a, 0x37,
+	0x1c, 0x38, 0x6e, 0x9c, 0x49, 0xb3, 0xc2, 0xf6, 0x9a, 0xdd, 0x4d, 0xaa, 0x5e, 0xe1, 0xc0, 0x85,
+	0x1b, 0xe2, 0x2f, 0xe3, 0x5f, 0xe0, 0x0f, 0x41, 0x3b, 0x6b, 0x3b, 0x76, 0x9a, 0xf6, 0x94, 0xfd,
+	0xbe, 0xf9, 0x66, 0x76, 0x76, 0x67, 0xf3, 0x19, 0x8e, 0x96, 0xa8, 0xe4, 0x8c, 0xc7, 0xf1, 0x45,
+	0xa6, 0xa4, 0x91, 0xac, 0x99, 0xcd, 0x4e, 0xcf, 0xee, 0xa4, 0xbc, 0x8b, 0x71, 0xc0, 0x33, 0x31,
+	0xe0, 0x69, 0x2a, 0x0d, 0x37, 0x42, 0xa6, 0xda, 0x29, 0x82, 0x29, 0xec, 0xdd, 0xc4, 0xfc, 0x01,
+	0x15, 0x3b, 0x85, 0xae, 0x5b, 0x7d, 0x3f, 0xf7, 0x1b, 0xfd, 0xc6, 0x79, 0x27, 0x2c, 0x31, 0x63,
+	0xd0, 0xfe, 0x91, 0x27, 0xe8, 0x37, 0xfb, 0x8d, 0xf3, 0x83, 0x90, 0xd6, 0xa4, 0x97, 0x5a, 0xd8,
+	0x62, 0x7e, 0x8b, 0xf8, 0x12, 0x07, 0x11, 0x78, 0x6f, 0x65, 0x92, 0xa1, 0x21, 0xc8, 0x5e, 0xc3,
+	0x61, 0x05, 0x96, 0xf5, 0xeb, 0xe4, 0x53, 0x9b, 0x5c, 0x89, 0xb5, 0xd0, 0x95, 0x4d, 0x0a, 0x1c,
+	0x0c, 0xa1, 0x3d, 0x45, 0x9e, 0xb0, 0xf7, 0x61, 0xcf, 0xfe, 0x96, 0x65, 0x73, 0xb4, 0xab, 0x5e,
+	0xf0, 0x2d, 0x74, 0x7f, 0x90, 0x11, 0xdd, 0x00, 0xfb, 0x10, 0xa0, 0x58, 0x97, 0xb9, 0x15, 0x66,
+	0x67, 0xfe, 0x25, 0xb4, 0xaf, 0xb8, 0x41, 0x1b, 0x7b, 0x40, 0xae, 0xf2, 0x2c, 0x5a, 0xb3, 0x13,
+	0xe8, 0x24, 0x32, 0x35, 0x4b, 0x4a, 0xe8, 0x84, 0x0e, 0xb0, 0x97, 0xd0, 0x9a, 0xf3, 0x07, 0x6a,
+	0xbe, 0x13, 0xda, 0x25, 0xf5, 0x2d, 0x12, 0xaa, 0xb1, 0x94, 0xab, 0xb2, 0x86, 0x5d, 0xdb, 0xb3,
+	0x24, 0x22, 0x5d, 0x19, 0xcc, 0x8b, 0xe4, 0x28, 0xf8, 0xa7, 0x03, 0x9d, 0x5b, 0xc3, 0x8d, 0x66,
+	0x3e, 0xec, 0xd3, 0xa2, 0x6c, 0xb9, 0x80, 0xac, 0x0f, 0xde, 0xf4, 0x5e, 0xde, 0x48, 0x91, 0x9a,
+	0xeb, 0xf1, 0x28, 0x2f, 0x50, 0xa5, 0xea, 0x8a, 0x49, 0xde, 0x53, 0x95, 0xb2, 0x93, 0x9a, 0x2e,
+	0x15, 0xa2, 0x23, 0x26, 0x23, 0xbf, 0xed, 0x26, 0x55, 0x23, 0xb7, 0x54, 0xe3, 0x89, 0xdf, 0x79,
+	0xa4, 0x1a, 0x4f, 0xd8, 0xe7, 0xf0, 0xea, 0x5a, 0x21, 0x4e, 0x97, 0x4a, 0xde, 0xeb, 0x91, 0x31,
+	0x98, 0x64, 0x06, 0xe7, 0xfe, 0x1e, 0x69, 0x77, 0x85, 0xd8, 0xc7, 0x70, 0xb4, 0xa1, 0x27, 0x7c,
+	0x8e, 0xfe, 0x3e, 0x89, 0xb7, 0x58, 0xf6, 0x19, 0x1c, 0xff, 0xb4, 0x58, 0x60, 0xaa, 0xc5, 0x1a,
+	0x43, 0x9c, 0xc9, 0x55, 0x3a, 0xd7, 0x7e, 0x97, 0xa4, 0x8f, 0x03, 0x56, 0x7d, 0x85, 0xdb, 0xea,
+	0x03, 0xa7, 0x7e, 0x14, 0xb0, 0xf7, 0x3b, 0xd2, 0x5a, 0x68, 0xa3, 0x7d, 0x70, 0xf7, 0x9b, 0x43,
+	0x3b, 0x9b, 0xcb, 0x58, 0x46, 0xbf, 0x6a, 0xdf, 0x73, 0xb3, 0x71, 0xc8, 0xf2, 0xb7, 0x06, 0x79,
+	0xac, 0xfd, 0x17, 0x8e, 0x77, 0x88, 0x9d, 0xc1, 0xc1, 0x74, 0xa5, 0x52, 0xb9, 0x46, 0xa5, 0xfd,
+	0x43, 0x0a, 0x6d, 0x08, 0x76, 0x01, 0x2c, 0xc4, 0xbb, 0x55, 0xcc, 0xd5, 0xb5, 0x5c, 0xc5, 0xfa,
+	0x5a, 0xaa, 0x08, 0xe7, 0xfe, 0x11, 0xc9, 0x76, 0x44, 0xd8, 0x97, 0xf0, 0x5e, 0x95, 0x7d, 0x2b,
+	0x93, 0x44, 0x18, 0x7b, 0x9f, 0x3d, 0x4a, 0xd9, 0x1d, 0x64, 0x5f, 0xc3, 0x07, 0x53, 0x8c, 0x96,
+	0xa9, 0x88, 0x78, 0xbc, 0x95, 0xf7, 0x92, 0xf2, 0x9e, 0x0a, 0xdb, 0x19, 0x4f, 0xe8, 0xed, 0x69,
+	0x72, 0x81, 0xb9, 0x7f, 0xec, 0x66, 0x5c, 0x23, 0x83, 0x7d, 0xe8, 0x7c, 0x97, 0x64, 0xc6, 0x3e,
+	0xea, 0x93, 0x31, 0x9a, 0xdc, 0x30, 0xd2, 0x85, 0x0c, 0xf1, 0xb7, 0x15, 0x6a, 0xf3, 0x9c, 0xab,
+	0x04, 0x7f, 0x34, 0xe0, 0xd0, 0x81, 0x1b, 0x25, 0x17, 0x22, 0xc6, 0xf2, 0x2f, 0xd7, 0xa8, 0x58,
+	0x40, 0x1f, 0xbc, 0x5f, 0x90, 0xab, 0x5b, 0xc3, 0x95, 0x6d, 0x3b, 0x7f, 0xd6, 0x15, 0xea, 0x39,
+	0x27, 0xb2, 0xd9, 0x57, 0xa8, 0x23, 0x25, 0x32, 0x0a, 0xb7, 0x29, 0x5c, 0xa5, 0x82, 0xbf, 0x1a,
+	0x00, 0x9b, 0xbe, 0x9f, 0xb5, 0xc1, 0x4f, 0x61, 0x3f, 0xef, 0x94, 0xda, 0xf0, 0x86, 0xc7, 0x17,
+	0xd9, 0xec, 0xa2, 0x76, 0x84, 0xb0, 0x50, 0xb0, 0xaf, 0xc0, 0x0b, 0x31, 0xc2, 0xd4, 0xd0, 0xff,
+	0xd3, 0x6f, 0xf5, 0x5b, 0xe7, 0xde, 0xf0, 0xd5, 0x26, 0x61, 0xcc, 0x13, 0xa4, 0x50, 0x58, 0xd5,
+	0x05, 0x06, 0x7a, 0x5b, 0x71, 0x76, 0x0e, 0x5d, 0x0b, 0x6c, 0x7b, 0xd4, 0x92, 0x37, 0x7c, 0x61,
+	0xcb, 0x14, 0x5c, 0x58, 0x46, 0x2b, 0x56, 0xd8, 0xac, 0x59, 0xe1, 0x47, 0xb9, 0x7b, 0xd0, 0xf5,
+	0x78, 0xc3, 0x03, 0x9b, 0xee, 0xf6, 0x76, 0x7c, 0xf0, 0x67, 0x13, 0x6a, 0x55, 0x68, 0x5d, 0x1a,
+	0xaa, 0x43, 0xec, 0x35, 0x74, 0xdf, 0xc9, 0x04, 0x6d, 0xcd, 0xfc, 0xfc, 0x5d, 0x5b, 0xc8, 0xe2,
+	0xb0, 0x8c, 0x58, 0xd5, 0xe8, 0x9e, 0x3f, 0x90, 0xaa, 0xb5, 0xad, 0x2a, 0x22, 0xf6, 0x4c, 0x85,
+	0xd5, 0xd2, 0x50, 0xf2, 0x33, 0x15, 0x5c, 0xb8, 0xb1, 0xe9, 0x37, 0xb5, 0x6f, 0x09, 0x59, 0x8d,
+	0x37, 0xec, 0x59, 0x71, 0x85, 0x0e, 0x6b, 0xdf, 0x9b, 0x33, 0xe7, 0xd2, 0x64, 0x35, 0xf9, 0xf6,
+	0x16, 0x87, 0xce, 0xbb, 0xcf, 0x9c, 0xff, 0x92, 0xb7, 0x14, 0xcd, 0x89, 0x04, 0x43, 0x62, 0x87,
+	0x4b, 0xe8, 0xbd, 0x43, 0x25, 0x2f, 0x79, 0x1c, 0xdf, 0xa2, 0x5a, 0x8b, 0x08, 0xd9, 0xcf, 0x70,
+	0x58, 0x7b, 0xdb, 0xcc, 0xa7, 0xeb, 0xdf, 0xf1, 0xdc, 0x4f, 0x8f, 0x36, 0xf3, 0xb5, 0x74, 0x70,
+	0xfa, 0xfb, 0xbf, 0xff, 0xfd, 0xdd, 0x3c, 0x09, 0x7a, 0x83, 0xf5, 0x9b, 0x41, 0x46, 0xfc, 0x40,
+	0xa4, 0x0b, 0xf9, 0x4d, 0xe3, 0x93, 0xd9, 0x1e, 0x7d, 0x81, 0xbf, 0xf8, 0x3f, 0x00, 0x00, 0xff,
+	0xff, 0x5a, 0x0a, 0x58, 0x31, 0xb5, 0x07, 0x00, 0x00,
 }
