@@ -83,7 +83,7 @@ message PlayerInfo {
 
 message GameInfo {
   Game Game = 1;
-  repeated PlayerGameStats Players = 2;
+  repeated PlayerGameStats PlayerStats = 2;
 }
 
 message GetPlayerInfoRequest {
