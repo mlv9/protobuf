@@ -13,7 +13,7 @@ message Player {
 message Competition {
   int32 CompetitionId = 1;
   string Name = 2;
-  string Division = 3;
+  string SubCompetition = 3;
 }
 
 message Team {
@@ -26,7 +26,7 @@ message Location {
   string Name = 2;
 }
 
-message PlayerStats {
+message Stats {
   int32 StatsId = 1;
   int32 TwoPointFGA = 2;
   int32 TwoPointFGM = 3;
@@ -58,7 +58,7 @@ message PlayerProfile {
 message PlayerGameStats {
   int32 PlayerId = 1;
   int32 TeamId = 2;
-  PlayerStats Stats = 3;
+  Stats Stats = 3;
 }
 
 message PlayerGame {
