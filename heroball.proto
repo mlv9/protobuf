@@ -26,17 +26,6 @@ message Location {
   string Name = 2;
 }
 
-message Date {
-  int32 year = 1;
-  int32 month = 2;
-  int32 day = 3;
-}
-
-message Time {
-  int32 hour = 1;
-  int32 minute = 2;
-}
-
 message Stats {
   int32 StatsId = 1;
   int32 TwoPointFGA = 2;
@@ -57,8 +46,6 @@ message Stats {
   int32 MinutesPlayed = 17;
 }
 
-
-
 message Empty {}
 
 message GetPlayerInfoRequest {
@@ -75,29 +62,29 @@ message PlayerProfile {
 message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
-  repeated PlayerGameStats RecentStats = 3;
+  repeated PlayerGameStats RecentGameStats = 3;
 }
 
 message PlayerGameStats {
-  GameInfo GameInfo = 1;
+  int32 PlayerId = 1;
   int32 TeamId = 2;
-  Stats Stats = 3;
+  Game Game = 3;
+  Stats Stats = 4;
 }
 
-message GameInfo {
+message Game {
   int32 GameId = 1;
   Team HomeTeam = 2;
   Team AwayTeam = 3;
   Location Location = 4;
   Competition Competition = 5;
-  Date Date = 6;
-  Time Time = 7;
+  string Datetime = 7;
 }
 
 service HeroBallService {
   rpc GetPlayerInfo(GetPlayerInfoRequest) returns (PlayerInfo)  {
       option (google.api.http) = {
-        post: "/v1/player/info"
+        post: "/v1/get/player/info"
         body: "*"
     };
   }
