@@ -48,10 +48,6 @@ message PlayerStats {
 
 message Empty {}
 
-message GetPlayerInfoRequest {
-  int32 PlayerId = 1;
-}
-
 message PlayerProfile {
   string Name = 1;
   int32 YearStarted = 2;
@@ -90,6 +86,14 @@ message GameInfo {
   repeated PlayerGameStats Players = 2;
 }
 
+message GetPlayerInfoRequest {
+  int32 PlayerId = 1;
+}
+
+message GetGameInfoRequest {
+  int32 GameId = 1;
+}
+
 service HeroBallService {
   rpc GetPlayerInfo(GetPlayerInfoRequest) returns (PlayerInfo)  {
       option (google.api.http) = {
@@ -97,4 +101,12 @@ service HeroBallService {
         body: "*"
     };
   }
+
+  rpc GetGameInfo(GetGameInfoRequest) returns (GameInfo)  {
+      option (google.api.http) = {
+        post: "/v1/get/game/info"
+        body: "*"
+    };
+  }
+
 }
