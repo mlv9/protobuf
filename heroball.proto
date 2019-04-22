@@ -59,17 +59,15 @@ message PlayerProfile {
   string Description = 4;
 }
 
-message PlayerInfo {
+message PlayerStats {
   int32 PlayerId = 1;
-  PlayerProfile Profile = 2;
-  repeated PlayerGameStats RecentGameStats = 3;
+  int32 TeamId = 2;
+  Stats Stats = 4;
 }
 
 message PlayerGameStats {
-  int32 PlayerId = 1;
-  int32 TeamId = 2;
-  Game Game = 3;
-  Stats Stats = 4;
+  Game Game = 1;
+  PlayerStats Stats = 2;
 }
 
 message Game {
@@ -79,6 +77,17 @@ message Game {
   Location Location = 4;
   Competition Competition = 5;
   string GameTime = 7;
+}
+
+message PlayerInfo {
+  int32 PlayerId = 1;
+  PlayerProfile Profile = 2;
+  repeated PlayerGameStats RecentGameStats = 3;
+}
+
+message GameInfo {
+  Game Game = 1;
+  repeated PlayerStats Players = 2;
 }
 
 service HeroBallService {
