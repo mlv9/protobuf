@@ -72,7 +72,13 @@ message Game {
   Team AwayTeam = 3;
   Location Location = 4;
   Competition Competition = 5;
+  GameResult Result = 6;
   string GameTime = 7;
+}
+
+message GameResult {
+  int32 HomeTeamPoints = 1;
+  int32 AwayTeamPoints = 2;
 }
 
 message PlayerInfo {
