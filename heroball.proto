@@ -41,7 +41,7 @@ message Stats {
   int32 StatsId = 1;
   int32 TwoPointFGA = 2;
   int32 TwoPointFGM = 3;
-  int32 ThreePointFMA = 4;
+  int32 ThreePointFGA = 4;
   int32 ThreePointFGM = 5;
   int32 FreeThrowsAttempted = 6;
   int32 FreeThrowsMade = 7;
