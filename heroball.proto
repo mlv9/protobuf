@@ -26,7 +26,7 @@ message Location {
   string Name = 2;
 }
 
-message Stats {
+message PlayerStats {
   int32 StatsId = 1;
   int32 TwoPointFGA = 2;
   int32 TwoPointFGM = 3;
@@ -59,15 +59,15 @@ message PlayerProfile {
   string Description = 4;
 }
 
-message PlayerStats {
+message PlayerGameStats {
   int32 PlayerId = 1;
   int32 TeamId = 2;
-  Stats Stats = 4;
+  PlayerStats Stats = 3;
 }
 
-message PlayerGameStats {
+message PlayerGame {
   Game Game = 1;
-  PlayerStats Stats = 2;
+  PlayerGameStats Stats = 2;
 }
 
 message Game {
@@ -82,12 +82,12 @@ message Game {
 message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
-  repeated PlayerGameStats RecentGameStats = 3;
+  repeated PlayerGame RecentGames = 3;
 }
 
 message GameInfo {
   Game Game = 1;
-  repeated PlayerStats Players = 2;
+  repeated PlayerGameStats Players = 2;
 }
 
 service HeroBallService {
