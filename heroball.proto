@@ -46,8 +46,6 @@ message Stats {
   int32 MinutesPlayed = 17;
 }
 
-message Empty {}
-
 message PlayerProfile {
   string Name = 1;
   int32 YearStarted = 2;
@@ -57,13 +55,18 @@ message PlayerProfile {
 
 message PlayerGameStats {
   Player Player = 1;
-  int32 TeamId = 2;
+  PlayerTeam Team = 2;
   Stats Stats = 3;
 }
 
 message PlayerGame {
   Game Game = 1;
   PlayerGameStats Stats = 2;
+}
+
+message PlayerTeam {
+  Team Team = 1;
+  int32 JerseyNumber = 2;
 }
 
 message Game {
@@ -85,6 +88,14 @@ message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
   repeated PlayerGame RecentGames = 3;
+  repeated PlayerTeam Teams = 4;
+  Stats Averages = 5;
+  int32 TotalGamesPlayed = 6;
+}
+
+message TeamInfo {
+  Team Team = 1;
+  repeated PlayerInfo Players = 2;
 }
 
 message GameInfo {
@@ -107,6 +118,10 @@ message GetGameInfoRequest {
   int32 GameId = 1;
 }
 
+message GetTeamInfoRequest {
+  int32 TeamId = 1;
+}
+
 message GetCompetitionInfoRequest {
   int32 CompetitionId = 1;
 }
@@ -116,6 +131,13 @@ service HeroBallService {
   rpc GetPlayerInfo(GetPlayerInfoRequest) returns (PlayerInfo)  {
       option (google.api.http) = {
         post: "/v1/get/player/info"
+        body: "*"
+    };
+  }
+
+  rpc GetTeamInfo(GetTeamInfoRequest) returns (TeamInfo)  {
+      option (google.api.http) = {
+        post: "/v1/get/team/info"
         body: "*"
     };
   }
