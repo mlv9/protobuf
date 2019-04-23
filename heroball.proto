@@ -110,6 +110,7 @@ message GetCompetitionInfoRequest {
 }
 
 service HeroBallService {
+
   rpc GetPlayerInfo(GetPlayerInfoRequest) returns (PlayerInfo)  {
       option (google.api.http) = {
         post: "/v1/get/player/info"

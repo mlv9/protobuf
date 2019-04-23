@@ -37,7 +37,7 @@ func (m *Player) Reset()         { *m = Player{} }
 func (m *Player) String() string { return proto.CompactTextString(m) }
 func (*Player) ProtoMessage()    {}
 func (*Player) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{0}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{0}
 }
 func (m *Player) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Player.Unmarshal(m, b)
@@ -91,7 +91,7 @@ func (m *Competition) Reset()         { *m = Competition{} }
 func (m *Competition) String() string { return proto.CompactTextString(m) }
 func (*Competition) ProtoMessage()    {}
 func (*Competition) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{1}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{1}
 }
 func (m *Competition) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Competition.Unmarshal(m, b)
@@ -144,7 +144,7 @@ func (m *Team) Reset()         { *m = Team{} }
 func (m *Team) String() string { return proto.CompactTextString(m) }
 func (*Team) ProtoMessage()    {}
 func (*Team) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{2}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{2}
 }
 func (m *Team) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Team.Unmarshal(m, b)
@@ -190,7 +190,7 @@ func (m *Location) Reset()         { *m = Location{} }
 func (m *Location) String() string { return proto.CompactTextString(m) }
 func (*Location) ProtoMessage()    {}
 func (*Location) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{3}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{3}
 }
 func (m *Location) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Location.Unmarshal(m, b)
@@ -251,7 +251,7 @@ func (m *Stats) Reset()         { *m = Stats{} }
 func (m *Stats) String() string { return proto.CompactTextString(m) }
 func (*Stats) ProtoMessage()    {}
 func (*Stats) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{4}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{4}
 }
 func (m *Stats) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Stats.Unmarshal(m, b)
@@ -400,7 +400,7 @@ func (m *Empty) Reset()         { *m = Empty{} }
 func (m *Empty) String() string { return proto.CompactTextString(m) }
 func (*Empty) ProtoMessage()    {}
 func (*Empty) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{5}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{5}
 }
 func (m *Empty) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Empty.Unmarshal(m, b)
@@ -434,7 +434,7 @@ func (m *PlayerProfile) Reset()         { *m = PlayerProfile{} }
 func (m *PlayerProfile) String() string { return proto.CompactTextString(m) }
 func (*PlayerProfile) ProtoMessage()    {}
 func (*PlayerProfile) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{6}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{6}
 }
 func (m *PlayerProfile) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerProfile.Unmarshal(m, b)
@@ -495,7 +495,7 @@ func (m *PlayerGameStats) Reset()         { *m = PlayerGameStats{} }
 func (m *PlayerGameStats) String() string { return proto.CompactTextString(m) }
 func (*PlayerGameStats) ProtoMessage()    {}
 func (*PlayerGameStats) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{7}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{7}
 }
 func (m *PlayerGameStats) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerGameStats.Unmarshal(m, b)
@@ -548,7 +548,7 @@ func (m *PlayerGame) Reset()         { *m = PlayerGame{} }
 func (m *PlayerGame) String() string { return proto.CompactTextString(m) }
 func (*PlayerGame) ProtoMessage()    {}
 func (*PlayerGame) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{8}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{8}
 }
 func (m *PlayerGame) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerGame.Unmarshal(m, b)
@@ -599,7 +599,7 @@ func (m *Game) Reset()         { *m = Game{} }
 func (m *Game) String() string { return proto.CompactTextString(m) }
 func (*Game) ProtoMessage()    {}
 func (*Game) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{9}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{9}
 }
 func (m *Game) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Game.Unmarshal(m, b)
@@ -680,7 +680,7 @@ func (m *GameResult) Reset()         { *m = GameResult{} }
 func (m *GameResult) String() string { return proto.CompactTextString(m) }
 func (*GameResult) ProtoMessage()    {}
 func (*GameResult) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{10}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{10}
 }
 func (m *GameResult) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GameResult.Unmarshal(m, b)
@@ -727,7 +727,7 @@ func (m *PlayerInfo) Reset()         { *m = PlayerInfo{} }
 func (m *PlayerInfo) String() string { return proto.CompactTextString(m) }
 func (*PlayerInfo) ProtoMessage()    {}
 func (*PlayerInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{11}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{11}
 }
 func (m *PlayerInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PlayerInfo.Unmarshal(m, b)
@@ -780,7 +780,7 @@ func (m *GameInfo) Reset()         { *m = GameInfo{} }
 func (m *GameInfo) String() string { return proto.CompactTextString(m) }
 func (*GameInfo) ProtoMessage()    {}
 func (*GameInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{12}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{12}
 }
 func (m *GameInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GameInfo.Unmarshal(m, b)
@@ -826,7 +826,7 @@ func (m *CompetitionInfo) Reset()         { *m = CompetitionInfo{} }
 func (m *CompetitionInfo) String() string { return proto.CompactTextString(m) }
 func (*CompetitionInfo) ProtoMessage()    {}
 func (*CompetitionInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{13}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{13}
 }
 func (m *CompetitionInfo) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CompetitionInfo.Unmarshal(m, b)
@@ -871,7 +871,7 @@ func (m *GetPlayerInfoRequest) Reset()         { *m = GetPlayerInfoRequest{} }
 func (m *GetPlayerInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPlayerInfoRequest) ProtoMessage()    {}
 func (*GetPlayerInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{14}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{14}
 }
 func (m *GetPlayerInfoRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetPlayerInfoRequest.Unmarshal(m, b)
@@ -909,7 +909,7 @@ func (m *GetGameInfoRequest) Reset()         { *m = GetGameInfoRequest{} }
 func (m *GetGameInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*GetGameInfoRequest) ProtoMessage()    {}
 func (*GetGameInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{15}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{15}
 }
 func (m *GetGameInfoRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetGameInfoRequest.Unmarshal(m, b)
@@ -947,7 +947,7 @@ func (m *GetCompetitionInfoRequest) Reset()         { *m = GetCompetitionInfoReq
 func (m *GetCompetitionInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*GetCompetitionInfoRequest) ProtoMessage()    {}
 func (*GetCompetitionInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_heroball_dbc4f5ba9047adcb, []int{16}
+	return fileDescriptor_heroball_9d33c7ca092414d8, []int{16}
 }
 func (m *GetCompetitionInfoRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetCompetitionInfoRequest.Unmarshal(m, b)
@@ -1132,9 +1132,9 @@ var _HeroBallService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "heroball.proto",
 }
 
-func init() { proto.RegisterFile("heroball.proto", fileDescriptor_heroball_dbc4f5ba9047adcb) }
+func init() { proto.RegisterFile("heroball.proto", fileDescriptor_heroball_9d33c7ca092414d8) }
 
-var fileDescriptor_heroball_dbc4f5ba9047adcb = []byte{
+var fileDescriptor_heroball_9d33c7ca092414d8 = []byte{
 	// 978 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x56, 0xdd, 0x6e, 0x1b, 0x45,
 	0x14, 0x96, 0x1d, 0xdb, 0xb1, 0xcf, 0x26, 0x31, 0x99, 0x40, 0x58, 0xac, 0xb4, 0x44, 0x4b, 0x55,
