@@ -92,12 +92,21 @@ message GameInfo {
   repeated PlayerGameStats PlayerStats = 2;
 }
 
+message CompetitionInfo {
+  Competition Competition = 1;
+  repeated Game RecentGames = 2;
+}
+
 message GetPlayerInfoRequest {
   int32 PlayerId = 1;
 }
 
 message GetGameInfoRequest {
   int32 GameId = 1;
+}
+
+message GetCompetitionInfoRequest {
+  int32 CompetitionId = 1;
 }
 
 service HeroBallService {
@@ -111,6 +120,13 @@ service HeroBallService {
   rpc GetGameInfo(GetGameInfoRequest) returns (GameInfo)  {
       option (google.api.http) = {
         post: "/v1/get/game/info"
+        body: "*"
+    };
+  }
+
+  rpc GetCompetitionInfo(GetCompetitionInfoRequest) returns (CompetitionInfo)  {
+      option (google.api.http) = {
+        post: "/v1/get/competition/info"
         body: "*"
     };
   }
