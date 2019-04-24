@@ -40,22 +40,22 @@ message Location {
 }
 
 message Stats {
-  int32 TwoPointFGA = 6;
-  int32 TwoPointFGM = 7;
-  int32 ThreePointFGA = 8;
-  int32 ThreePointFGM = 9;
-  int32 FreeThrowsAttempted = 10;
-  int32 FreeThrowsMade = 11;
-  int32 OffensiveRebounds = 12;
-  int32 DefensiveRebounds = 13;
-  int32 Assists = 14;
-  int32 Blocks = 15;
-  int32 Steals = 16;
-  int32 Turnovers = 17;
-  int32 RegularFoulsForced = 18;
-  int32 RegularFoulsCommitted = 19;
-  int32 TechnicalFoulsCommitted = 20;
-  int32 MinutesPlayed = 21;
+  int32 TwoPointFGA = 1;
+  int32 TwoPointFGM = 2;
+  int32 ThreePointFGA = 3;
+  int32 ThreePointFGM = 4;
+  int32 FreeThrowsAttempted = 5;
+  int32 FreeThrowsMade = 6;
+  int32 OffensiveRebounds = 7;
+  int32 DefensiveRebounds = 8;
+  int32 Assists = 9;
+  int32 Blocks = 10;
+  int32 Steals = 11;
+  int32 Turnovers = 12;
+  int32 RegularFoulsForced = 13;
+  int32 RegularFoulsCommitted = 14;
+  int32 TechnicalFoulsCommitted = 15;
+  int32 MinutesPlayed = 16;
 }
 
 message PlayerProfile {
@@ -123,6 +123,11 @@ message CompetitionInfo {
   repeated Location Locations = 3;
   repeated Team Teams = 4;
   repeated CompetitionTeam Standings = 5;
+}
+
+message StatLeaders {
+
+
 }
 
 message GetPlayerInfoRequest {
