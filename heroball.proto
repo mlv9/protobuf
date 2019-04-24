@@ -10,10 +10,16 @@ message Player {
   string Position = 3;
 }
 
-message Competition {
-  int32 CompetitionId = 1;
+message League {
+  int32 LeagueId = 1;
   string Name = 2;
-  string SubCompetition = 3;
+  string Division = 3;
+}
+
+message Competition {
+  League League = 1;
+  int32 CompetitionId = 2;
+  string Name = 3;
 }
 
 message Team {
