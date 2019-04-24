@@ -20,11 +20,19 @@ message Competition {
   League League = 1;
   int32 CompetitionId = 2;
   string Name = 3;
+  repeated CompetitionTeam Standings = 4;
 }
 
 message Team {
   int32 TeamId = 1;
   string Name = 2;
+}
+
+message CompetitionTeam {
+  Team Team = 1;
+  int32 Won = 2;
+  int32 Drawn = 3;
+  int32 Lost = 4;
 }
 
 message Location {
@@ -86,8 +94,10 @@ message Game {
 }
 
 message GameResult {
-  int32 HomeTeamPoints = 1;
-  int32 AwayTeamPoints = 2;
+  int32 HomeTeamId = 1;
+  int32 HomeTeamPoints = 2;
+  int32 AwayTeamId = 3;
+  int32 AwayTeamPoints = 4;
 }
 
 message PlayerInfo {
