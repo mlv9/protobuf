@@ -40,23 +40,22 @@ message Location {
 }
 
 message Stats {
-  int32 StatsId = 1;
-  int32 TwoPointFGA = 2;
-  int32 TwoPointFGM = 3;
-  int32 ThreePointFGA = 4;
-  int32 ThreePointFGM = 5;
-  int32 FreeThrowsAttempted = 6;
-  int32 FreeThrowsMade = 7;
-  int32 OffensiveRebounds = 8;
-  int32 DefensiveRebounds = 9;
-  int32 Assists = 10;
-  int32 Blocks = 11;
-  int32 Steals = 12;
-  int32 Turnovers = 13;
-  int32 RegularFoulsForced = 14;
-  int32 RegularFoulsCommitted = 15;
-  int32 TechnicalFoulsCommitted = 16;
-  int32 MinutesPlayed = 17;
+  int32 TwoPointFGA = 6;
+  int32 TwoPointFGM = 7;
+  int32 ThreePointFGA = 8;
+  int32 ThreePointFGM = 9;
+  int32 FreeThrowsAttempted = 10;
+  int32 FreeThrowsMade = 11;
+  int32 OffensiveRebounds = 12;
+  int32 DefensiveRebounds = 13;
+  int32 Assists = 14;
+  int32 Blocks = 15;
+  int32 Steals = 16;
+  int32 Turnovers = 17;
+  int32 RegularFoulsForced = 18;
+  int32 RegularFoulsCommitted = 19;
+  int32 TechnicalFoulsCommitted = 20;
+  int32 MinutesPlayed = 21;
 }
 
 message PlayerProfile {
@@ -67,15 +66,17 @@ message PlayerProfile {
 }
 
 message PlayerGameStats {
-  Player Player = 1;
-  PlayerTeam Team = 2;
-  Stats Stats = 3;
+  int32 StatsId = 1;
+  Competition Competition = 2;
+  Team Team = 3;
+  Player Player = 4;
+  Stats Stats = 5;
 }
 
-// message PlayerGame {
-//   Game Game = 1;
-//   PlayerGameStats Stats = 2;
-// }
+message AggregateStats {
+  int32 Count = 1;
+  Stats TotalStats = 2;
+}
 
 message PlayerTeam {
   Team Team = 1;
@@ -103,8 +104,7 @@ message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
   repeated PlayerTeam Teams = 3;
-  Stats StatTotals = 4;
-  int32 TotalGamesPlayed = 5;
+  AggregateStats Stats = 4;
 }
 
 message TeamInfo {
