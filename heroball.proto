@@ -73,9 +73,11 @@ message PlayerGameStats {
   Stats Stats = 5;
 }
 
-message AggregateStats {
-  int32 Count = 1;
-  Stats TotalStats = 2;
+message PlayerAggregateStats {
+  Team Team = 1;
+  Player Player = 2;
+  int32 Count = 3;
+  Stats TotalStats = 4;
 }
 
 message PlayerTeam {
@@ -104,7 +106,7 @@ message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
   repeated PlayerTeam Teams = 3;
-  AggregateStats Stats = 4;
+  PlayerAggregateStats Stats = 4;
 }
 
 message TeamInfo {
@@ -123,11 +125,16 @@ message CompetitionInfo {
   repeated Location Locations = 3;
   repeated Team Teams = 4;
   repeated CompetitionTeam Standings = 5;
+  BasicStatsLeaders StatsLeaders = 6;
 }
 
-message StatLeaders {
-
-
+message BasicStatsLeaders {
+  repeated PlayerAggregateStats Points = 1;
+  repeated PlayerAggregateStats Rebounds = 2;
+  repeated PlayerAggregateStats Assists = 3;
+  repeated PlayerAggregateStats Steals = 4;
+  repeated PlayerAggregateStats Blocks = 5;
+  repeated PlayerAggregateStats Turnovers = 6;
 }
 
 message GetPlayerInfoRequest {
