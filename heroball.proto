@@ -20,7 +20,6 @@ message Competition {
   League League = 1;
   int32 CompetitionId = 2;
   string Name = 3;
-  repeated CompetitionTeam Standings = 4;
 }
 
 message Team {
@@ -123,6 +122,7 @@ message CompetitionInfo {
   repeated Game RecentGames = 2;
   repeated Location Locations = 3;
   repeated Team Teams = 4;
+  repeated CompetitionTeam Standings = 5;
 }
 
 message GetPlayerInfoRequest {
