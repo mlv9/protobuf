@@ -59,10 +59,10 @@ message PlayerGameStats {
   Stats Stats = 3;
 }
 
-message PlayerGame {
-  Game Game = 1;
-  PlayerGameStats Stats = 2;
-}
+// message PlayerGame {
+//   Game Game = 1;
+//   PlayerGameStats Stats = 2;
+// }
 
 message PlayerTeam {
   Team Team = 1;
@@ -87,10 +87,9 @@ message GameResult {
 message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
-  repeated PlayerGame RecentGames = 3;
-  repeated PlayerTeam Teams = 4;
-  Stats Averages = 5;
-  int32 TotalGamesPlayed = 6;
+  repeated PlayerTeam Teams = 3;
+  Stats StatTotals = 4;
+  int32 TotalGamesPlayed = 5;
 }
 
 message TeamInfo {
