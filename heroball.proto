@@ -82,7 +82,7 @@ message PlayerAggregateStats {
 
 message PlayerTeam {
   Team Team = 1;
-  int32 JerseyNumber = 2;
+  repeated int32 JerseyNumbers = 2;
 }
 
 message Game {
