@@ -111,7 +111,9 @@ message PlayerInfo {
 
 message TeamInfo {
   Team Team = 1;
-  repeated PlayerInfo Players = 2;
+  Competition Competition = 2;
+  repeated PlayerInfo Players = 3;
+  BasicStatsLeaders StatsLeaders = 4; 
 }
 
 message GameInfo {
