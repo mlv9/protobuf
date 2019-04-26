@@ -114,7 +114,8 @@ message TeamInfo {
   Competition Competition = 2;
   repeated PlayerInfo Players = 3;
   BasicStatsLeaders StatsLeaders = 4;
-  repeated int32 GameIds = 5;
+  repeated int32 GameIds = 6;
+  repeated Game RecentGames = 5;
 }
 
 message GameInfo {
