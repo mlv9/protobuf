@@ -125,11 +125,11 @@ message GameInfo {
 
 message CompetitionInfo {
   Competition Competition = 1;
-  repeated Game RecentGames = 2;
-  repeated Location Locations = 3;
-  repeated Team Teams = 4;
-  repeated CompetitionTeam Standings = 5;
-  BasicStatsLeaders StatsLeaders = 6;
+  repeated int32 GameIds = 2;
+  repeated Game RecentGames = 3;
+  repeated Location Locations = 4;
+  repeated CompetitionTeam Teams = 5;
+  BasicStatsLeaders StatsLeaders = 7;
 }
 
 message BasicStatsLeaders {
