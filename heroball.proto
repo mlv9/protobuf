@@ -108,8 +108,9 @@ message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
   repeated PlayerTeam Teams = 3;
-  repeated int32 GameIds = 4;
-  repeated Game RecentGames = 5;
+  PlayerAggregateStats StatsAllTime = 4;
+  repeated int32 GameIds = 5;
+  repeated Game RecentGames = 6;
 }
 
 message TeamInfo {
