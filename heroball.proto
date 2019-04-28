@@ -107,6 +107,8 @@ message PlayerInfo {
   PlayerProfile Profile = 2;
   repeated PlayerTeam Teams = 3;
   PlayerAggregateStats Stats = 4;
+  repeated int32 GameIds = 5;
+  repeated Game RecentGames = 6;
 }
 
 message TeamInfo {
