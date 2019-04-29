@@ -40,18 +40,18 @@ message Location {
 }
 
 message Stats {
-  int32 TwoPointFGA = 1;
-  int32 TwoPointFGM = 2;
-  int32 ThreePointFGA = 3;
-  int32 ThreePointFGM = 4;
-  int32 FreeThrowsAttempted = 5;
-  int32 FreeThrowsMade = 6;
+  int32 TwoPointFGM = 1;
+  int32 TwoPointFGA = 2;
+  int32 ThreePointFGM = 3;
+  int32 ThreePointFGA = 4;
+  int32 FreeThrowsMade = 5;
+  int32 FreeThrowsAttempted = 6;
   int32 OffensiveRebounds = 7;
   int32 DefensiveRebounds = 8;
   int32 Assists = 9;
-  int32 Blocks = 10;
+  int32 Turnovers = 10;
   int32 Steals = 11;
-  int32 Turnovers = 12;
+  int32 Blocks = 12;
   int32 RegularFoulsForced = 13;
   int32 RegularFoulsCommitted = 14;
   int32 TechnicalFoulsCommitted = 15;
