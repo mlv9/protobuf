@@ -67,10 +67,9 @@ message PlayerProfile {
 
 message PlayerGameStats {
   int32 StatsId = 1;
-  Competition Competition = 2;
-  Team Team = 3;
-  Player Player = 4;
-  Stats Stats = 5;
+  Team Team = 2;
+  Player Player = 3;
+  Stats Stats = 4;
 }
 
 message PlayerAggregateStats {
