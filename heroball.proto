@@ -111,6 +111,7 @@ message PlayerInfo {
   PlayerAggregateStats StatsAllTime = 4;
   repeated int32 GameIds = 5;
   repeated Game RecentGames = 6;
+  repeated PlayerGameStats RecentStats = 7;
 }
 
 message TeamInfo {
