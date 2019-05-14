@@ -175,6 +175,7 @@ message GamesCursor {
   int32 NextOffset = 1; /* where we are up to */
   int32 Total = 2; /* the total available */
   repeated Game Games = 3; /* those in this cursor */
+  GamesFilter Filter = 4;
 }
 
 service HeroBallService {
