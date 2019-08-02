@@ -116,7 +116,7 @@ message PlayerInfo {
 message TeamInfo {
   Team Team = 1;
   Competition Competition = 2;
-  repeated PlayerInfo Players = 3;
+  PlayersCursor Players = 3;
   BasicStatsLeaders StatsLeaders = 4;
   GamesCursor RecentGames = 5;
 }
@@ -178,6 +178,24 @@ message GamesCursor {
   GamesFilter Filter = 4;
 }
 
+message GetPlayersRequest {
+  int32 Offset = 1;
+  int32 Count = 2;
+  PlayersFilter Filter = 3;
+}
+
+message PlayersFilter {
+  repeated int32 CompetitionIds = 1; /* optional filter */
+  repeated int32 TeamIds = 2; /* optional filter */
+}
+
+message PlayersCursor {
+  int32 NextOffset = 1;
+  int32 Total = 2;
+  repeated Player Players = 3;
+  PlayersFilter Filter = 4;
+}
+
 service HeroBallService {
 
   rpc GetGames(GetGamesRequest) returns (GamesCursor)  {
@@ -185,6 +203,13 @@ service HeroBallService {
         post: "/v1/get/games"
         body: "*"
     };
+  }
+
+  rpc GetPlayers(GetPlayersRequest) returns (PlayersCursor) {
+      option (google.api.http) = {
+        post: "/v1/get/players"
+        body: "*"
+    };    
   }
 
   rpc GetPlayerInfo(GetPlayerInfoRequest) returns (PlayerInfo)  {
