@@ -166,9 +166,16 @@ message GetGamesRequest {
 }
 
 message GamesFilter {
-  repeated int32 CompetitionIds = 3; /* optional filter */
-  repeated int32 TeamIds = 4; /* optional filter */
-  repeated int32 PlayerIds = 5; /* optional filter */
+  repeated int32 CompetitionIds = 1; /* optional filter */
+  repeated int32 TeamIds = 2; /* optional filter */
+  repeated int32 PlayerIds = 3; /* optional filter */
+  Date Date = 4;
+}
+
+message Date {
+  int32 Day = 1;
+  int32 Month = 2;
+  int32 Year = 3;
 }
 
 message GamesCursor {
