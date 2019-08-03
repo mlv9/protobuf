@@ -169,8 +169,7 @@ message GamesFilter {
   repeated int32 CompetitionIds = 1; /* optional filter */
   repeated int32 TeamIds = 2; /* optional filter */
   repeated int32 PlayerIds = 3; /* optional filter */
-  Date StartDate = 4;
-  Date EndDate = 5;
+  Date Date = 4;
 }
 
 message Date {
