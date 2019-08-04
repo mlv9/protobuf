@@ -1,4 +1,4 @@
-// Heroball Protobuf
+// HeroBall Protobuf
 syntax = "proto3";
 import "google/api/annotations.proto";
 
@@ -203,7 +203,22 @@ message PlayersCursor {
   PlayersFilter Filter = 4;
 }
 
+message GetGamesFilterValuesRequest {}
+
+message GamesFilterValues {
+  repeated Competition Competitions = 1;
+  repeated Team Teams = 2;
+  repeated Player Players = 3;
+}
+
 service HeroBallService {
+
+  rpc GetGamesFilterValues(GetGamesFilterValuesRequest) returns (GamesFilterValues) {
+    option (google.api.http) = {
+      post: "/v1/get/games/filter"
+      body: "*"
+    };
+  }
 
   rpc GetGames(GetGamesRequest) returns (GamesCursor)  {
       option (google.api.http) = {
