@@ -203,9 +203,14 @@ message PlayersCursor {
   PlayersFilter Filter = 4;
 }
 
-message GetGamesFilterValuesRequest {}
+/* bool being true will cause the response to include that information */
+message GetHeroBallMetadataRequest {
+  bool Competitions = 1;
+  bool Teams = 2;
+  bool Players = 3;
+}
 
-message GamesFilterValues {
+message HeroBallMetadata {
   repeated Competition Competitions = 1;
   repeated Team Teams = 2;
   repeated Player Players = 3;
@@ -213,9 +218,9 @@ message GamesFilterValues {
 
 service HeroBallService {
 
-  rpc GetGamesFilterValues(GetGamesFilterValuesRequest) returns (GamesFilterValues) {
+  rpc GetHeroBallMetadata(GetHeroBallMetadataRequest) returns (HeroBallMetadata) {
     option (google.api.http) = {
-      post: "/v1/get/games/filter"
+      post: "/v1/get/metadata"
       body: "*"
     };
   }
