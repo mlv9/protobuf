@@ -74,10 +74,9 @@ message PlayerGameStats {
 }
 
 message PlayerAggregateStats {
-  Team Team = 1;
-  Player Player = 2;
-  int32 Count = 3;
-  Stats TotalStats = 4;
+  Player Player = 1;
+  int32 Count = 2;
+  Stats TotalStats = 3;
 }
 
 message PlayerTeam {
@@ -216,7 +215,35 @@ message HeroBallMetadata {
   repeated Player Players = 3;
 }
 
+message ForStatsRequest {
+  repeated int32 CompetitionId = 1;
+  repeated int32 TeamId = 2;
+  repeated int32 PlayerId = 3;
+}
+
+message AgainstStatsRequest {
+  repeated int32 CompetitionId = 1;
+  repeated int32 TeamId = 2;
+}
+
+message GetStatsRequest {
+  ForStatsRequest For = 1;
+  AgainstStatsRequest Against = 2;
+}
+
+message GetStatsResponse {
+  repeated PlayerAggregateStats Stats = 1;
+}
+
+
 service HeroBallService {
+
+  rpc GetStats(GetStatsRequest) returns (GetStatsResponse) {
+    option (google.api.http) = {
+      post: "/v1/get/stats",
+      body: "*"
+    };
+  }
 
   rpc GetHeroBallMetadata(GetHeroBallMetadataRequest) returns (HeroBallMetadata) {
     option (google.api.http) = {
