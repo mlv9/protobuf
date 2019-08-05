@@ -130,7 +130,7 @@ message CompetitionInfo {
   GamesCursor RecentGames = 2;
   repeated Location Locations = 3;
   repeated CompetitionTeam Teams = 4;
-  BasicStatsLeaders StatsLeaders = 5;
+  BasicStatsLeaders StatsLeaders = 5; /* this can probably be PlayerTeam? */
 }
 
 message BasicStatsLeaders {
@@ -216,14 +216,14 @@ message HeroBallMetadata {
 }
 
 message ForStatsRequest {
-  repeated int32 CompetitionId = 1;
-  repeated int32 TeamId = 2;
-  repeated int32 PlayerId = 3;
+  repeated int32 CompetitionIds = 1;
+  repeated int32 TeamIds = 2;
+  repeated int32 PlayerIds = 3;
 }
 
 message AgainstStatsRequest {
-  repeated int32 CompetitionId = 1;
-  repeated int32 TeamId = 2;
+  repeated int32 CompetitionIds = 1;
+  repeated int32 TeamIds = 2;
 }
 
 message GetStatsRequest {
@@ -234,7 +234,6 @@ message GetStatsRequest {
 message GetStatsResponse {
   repeated PlayerAggregateStats Stats = 1;
 }
-
 
 service HeroBallService {
 
