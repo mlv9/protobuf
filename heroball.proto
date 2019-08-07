@@ -76,13 +76,13 @@ message PlayerGameStats {
 
 message PlayerAggregateStats {
   Player Player = 1;
-  Stats TotalStats = 3;
+  Stats Stats = 3;
 }
 
 message PlayerTeam {
   Competition Competition = 1;
   Team Team = 2;
-  PlayerAggregateStats Stats = 3;
+  PlayerAggregateStats AggregateStats = 3;
   repeated int32 JerseyNumbers = 4;
 }
 
@@ -107,7 +107,7 @@ message PlayerInfo {
   int32 PlayerId = 1;
   PlayerProfile Profile = 2;
   repeated PlayerTeam Teams = 3;
-  PlayerAggregateStats StatsAllTime = 4;
+  PlayerAggregateStats AggregateStats = 4;
   GamesCursor RecentGames = 5;
   repeated PlayerGameStats RecentStats = 7;
 }
@@ -224,7 +224,7 @@ message GetStatsRequest {
 }
 
 message GetStatsResponse {
-  repeated PlayerAggregateStats Stats = 1;
+  repeated PlayerAggregateStats AggregateStats = 1;
 }
 
 service HeroBallService {
