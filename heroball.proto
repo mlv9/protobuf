@@ -129,8 +129,8 @@ message CompetitionInfo {
   GamesCursor RecentGames = 2;
   repeated Location Locations = 3;
   repeated CompetitionTeam Teams = 4;
-  Date FirstGameDate = 5;
-  Date LastGameDate = 6;  
+  string FirstGameTime = 5;
+  string LastGameTime = 6;  
 }
 
 message GetPlayerInfoRequest {
