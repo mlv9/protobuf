@@ -223,6 +223,7 @@ message GetStatsRequest {
   int32 MinimumGames = 3;
   ForStatsRequest For = 4;
   AgainstStatsRequest Against = 5;
+  string Ordering = 6;
 }
 
 message GetStatsResponse {
