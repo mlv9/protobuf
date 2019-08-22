@@ -159,7 +159,7 @@ message GamesFilter {
   repeated int32 CompetitionIds = 1; /* optional filter */
   repeated int32 TeamIds = 2; /* optional filter */
   repeated int32 PlayerIds = 3; /* optional filter */
-  Date Date = 4;
+  Date Date = 4; /* optional */
 }
 
 message Date {
@@ -217,7 +217,7 @@ message AgainstStatsRequest {
   repeated int32 TeamIds = 2;
 }
 
-message GetStatsRequest {
+message GetPlayerAverageStatsRequest {
   int32 Offset = 1;
   int32 Count = 2;
   int32 MinimumGames = 3;
@@ -226,15 +226,34 @@ message GetStatsRequest {
   string Ordering = 6;
 }
 
-message GetStatsResponse {
+message GetPlayerAverageStatsResponse {
   repeated PlayerAggregateStats AggregateStats = 1;
+}
+
+message GetPlayerGamesStatsRequest {
+  int32 Offset = 1;
+  int32 Count = 2;
+  int32 PlayerId = 3;
+  AgainstStatsRequest Against = 5;
+}
+
+message GetPlayerGamesStatsResponse {
+  repeated Game Games = 1;
+  repeated PlayerGameStats Stats = 2;
 }
 
 service HeroBallService {
 
-  rpc GetStats(GetStatsRequest) returns (GetStatsResponse) {
+  rpc GetPlayerGamesStats(GetPlayerGamesStatsRequest) returns (GetPlayerGamesStatsResponse) {
     option (google.api.http) = {
-      post: "/v1/get/stats",
+      post: "/v1/get/stats/player/games",
+      body: "*"
+    };
+  }
+
+  rpc GetPlayerAverageStats(GetPlayerAverageStatsRequest) returns (GetPlayerAverageStatsResponse) {
+    option (google.api.http) = {
+      post: "/v1/get/stats/player/average",
       body: "*"
     };
   }
